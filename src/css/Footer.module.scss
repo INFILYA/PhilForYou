@@ -1,0 +1,25 @@
+.footer {
+  margin-top: auto;
+  position: relative;
+  z-index: 0;
+  align-items: center;
+  section {
+    align-items: center;
+    min-height: 33vh;
+    background-color: #edecea;
+    padding-top: 0;
+
+    .content-wrapper {
+      padding-top: 5vw;
+      padding-bottom: 5vw;
+      box-sizing: border-box;
+      width: 100%;
+      .content {
+        display: block;
+        h1 {
+          color: black;
+        }
+      }
+    }
+  }
+}
