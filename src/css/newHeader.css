@@ -60,6 +60,7 @@ header .barWrapper .innerContainer .titleNavWrapper .logo img {
   max-height: 137px;
   width: auto;
   max-width: 100%;
+  background-color: transparent;
 }
 header .barWrapper .innerContainer .titleNavWrapper .navigation {
   text-align: right;

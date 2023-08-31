@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function Shop() {
   const [categoryChecked, setCategoryChecked] = useState("Show All");
-  const categorys = ["Accessories", "Online Services", "Clothes", "Show All"];
+  const categorys = ["Accessories", "Online Services", "Clothes", "Shoes", "Show All"];
   const products = [
     {
       category: "Accessories",
@@ -17,7 +17,7 @@ export default function Shop() {
     },
     {
       category: "Online Services",
-      name: "Volleyball Advice Mentorship",
+      name: "Phil For You Mentorship",
       image: "/photos/lesson.jpg",
       price: 95,
       description: "",
@@ -50,11 +50,11 @@ export default function Shop() {
       features: ["some Text"],
     },
     {
-      category: "Accessories",
-      name: "Sleeves",
-      image: "/photos/Sleeves.jpg",
-      price: 20,
-      size: ["small", "medium"],
+      category: "Shoes",
+      name: "Curry 10",
+      image: "/photos/Curry 10.jpg",
+      price: 120,
+      size: ["7", "8", "9", "10", "11", "12", "13"],
       description: "",
       features: ["some Text"],
     },

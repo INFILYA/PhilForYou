@@ -31,6 +31,7 @@ export default function ShopCart() {
   console.log(cartTotalProducts);
   return (
     <WrapperForSection
+      styleSection={{ marginTop: "-3vw" }}
       content={
         !cartIsEmpty ? (
           <div className="cart-container">
@@ -43,25 +44,38 @@ export default function ShopCart() {
             </NavLink>
           </div>
         ) : (
-          <div>
-            {cartTotalProducts.map((product) => (
-              <div key={product.name + product.size}>
-                <div>Chosen Product {product.name}</div>
-                <div>Quntity: {product.quantity}</div>
-                {product.size && <div>Size: {product.size}</div>}
-                <div>$ {product.price}</div>
-                <button onClick={() => increaseQuantityOfProduct(product)}>+</button>
-                <button
-                  onClick={() => reduceQuantityOfProduct(product)}
-                  disabled={product.quantity === 1}
-                >
-                  -
-                </button>
-              </div>
-            ))}
-            <h3>Total Price: ${totalPrice}</h3>
-            <h3>Total Quantity: {totalQuantity}</h3>
-          </div>
+          <>
+            <h3 style={{ marginTop: 0 }}>Shoping Cart</h3>
+            <div>
+              {cartTotalProducts.map((product) => (
+                <div key={product.name + product.size}>
+                  <div>
+                    Chosen Product: <strong>{product.name}</strong>
+                  </div>
+                  <div>
+                    Quntity: <strong>{product.quantity}</strong>
+                  </div>
+                  {product.size && (
+                    <div>
+                      Size: <strong>{product.size}</strong>
+                    </div>
+                  )}
+                  <div>
+                    Price: <strong>$ {product.price}.00</strong>
+                  </div>
+                  <button onClick={() => increaseQuantityOfProduct(product)}>+</button>
+                  <button
+                    onClick={() => reduceQuantityOfProduct(product)}
+                    disabled={product.quantity === 1}
+                  >
+                    -
+                  </button>
+                </div>
+              ))}
+              <h3>Total Price: ${totalPrice}.00</h3>
+              <h3>Total Quantity: {totalQuantity}</h3>
+            </div>
+          </>
         )
       }
     />

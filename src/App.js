@@ -15,11 +15,11 @@ import ShopCart from "./components/OtherParts/ShopCart";
 import Reviews from "./components/NavPanel/Reviews";
 import Shop from "./components/NavPanel/Shop";
 import Cap from "./components/NavPanel/Shop panel/Cap";
-import Sleeves from "./components/NavPanel/Shop panel/Sleeves";
 import Tshirt from "./components/NavPanel/Shop panel/Tshirt";
 import CreateVideoHighlights from "./components/NavPanel/Shop panel/CreateVideoHighlights";
-import VolleyballAdviceMentorship from "./components/NavPanel/Shop panel/VolleyballAdviceMentorship";
 import Gloves from "./components/NavPanel/Shop panel/Gloves";
+import Curry10 from "./components/NavPanel/Shop panel/Curry10";
+import PhilForYouMentorship from "./components/NavPanel/Shop panel/PhilForYouMentorship";
 
 function App() {
   return (
@@ -40,13 +40,10 @@ function App() {
             <Route path="/Shoping Cart" element={<ShopCart />} />
             <Route path="/Reviews" element={<Reviews />} />
             <Route path="/Shop" element={<Shop />} />
-            <Route path="/Shop/Sleeves" element={<Sleeves />} />
+            <Route path="/Shop/Curry 10" element={<Curry10 />} />
             <Route path="/Shop/Cap" element={<Cap />} />
             <Route path="/Shop/Gloves" element={<Gloves />} />
-            <Route
-              path="/Shop/Volleyball Advice Mentorship"
-              element={<VolleyballAdviceMentorship />}
-            />
+            <Route path="/Shop/Phil For You Mentorship" element={<PhilForYouMentorship />} />
             <Route path="/Shop/Create Video Highlights" element={<CreateVideoHighlights />} />
             <Route path="/Shop/T-shirt" element={<Tshirt />} />
           </Routes>

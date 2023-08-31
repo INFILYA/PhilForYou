@@ -438,6 +438,7 @@ section .content-wrapper .content .shop-content-wrapper .product-flex-container 
   background-color: white;
   aspect-ratio: 16/9;
   object-fit: cover;
+  background-color: transparent;
 }
 section .content-wrapper .content .shop-content-wrapper .nested-category-children {
   padding-bottom: 54px;
