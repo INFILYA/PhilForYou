@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import lesson from "../../photos/lesson.jpg";
 import Button from "../Wrapper and Button/Button";
 import WrapperForSection from "../Wrapper and Button/WrapperForSection";
 
@@ -12,7 +11,7 @@ export default function LessonsBlock() {
             <div className="intr">
               <div className="block-image">
                 <div className="image-container">
-                  <img src={lesson} alt="" />
+                  <img src="/photos/lesson.jpg" alt="" />
                 </div>
               </div>
             </div>

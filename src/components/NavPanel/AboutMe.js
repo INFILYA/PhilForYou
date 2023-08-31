@@ -1,4 +1,3 @@
-import Harmash from "../../photos/Harmash.jpg";
 import WrapperForSection from "../Wrapper and Button/WrapperForSection";
 
 export default function AboutMe() {
@@ -10,7 +9,7 @@ export default function AboutMe() {
             <div className="intr">
               <div className="block-image">
                 <div className="image-container">
-                  <img src={Harmash} alt="" />
+                  <img src="/photos/Harmash.jpg" alt="" />
                 </div>
               </div>
             </div>
@@ -28,10 +27,10 @@ export default function AboutMe() {
                       Poltava. <br></br>My volleyball adventure started when I was seven years old.
                       And by my senior year, I got an offer from one most prestigious volleybal club
                       in Ukraine. At sixteen years old , I signed my first professional contract
-                      with that clubs.<br></br> That's how I started playing
-                      professionally.<br></br> During my successful volleyball adventure, I've
-                      played in Romania, Ukraine. Six years for the National Team of Ukraine.
-                      Numerous international competitions and high-level tournaments.
+                      with that clubs.<br></br> That's how I started playing professionally.
+                      <br></br> During my successful volleyball adventure, I've played in Romania,
+                      Ukraine. Six years for the National Team of Ukraine. Numerous international
+                      competitions and high-level tournaments.
                       <br></br>
                       <strong>At age 24 I become the best Libero in the Country!</strong>
                       <br></br> All this gave me an unforgettable experience of volleyball. During
@@ -43,8 +42,9 @@ export default function AboutMe() {
                       getting the best out of this, I know exactly how to prepare future volleyball
                       stars and get them where they wanted to be.<br></br> My favourite expression
                       is: "Transform your Fantasy into your Legacy"<br></br> Favourite colour:
-                      Orange<br></br> Favourite movie: interstellar<br></br> Favourite hobby: Hangout with my daughter<br></br>Please check my Wikipedia page and find more detailed information
-                      about me:<br></br>
+                      Orange<br></br> Favourite movie: interstellar<br></br> Favourite hobby:
+                      Hangout with my daughter<br></br>Please check my Wikipedia page and find more
+                      detailed information about me:<br></br>
                       <a href="https://uk.wikipedia.org/wiki/%D0%93%D0%B0%D1%80%D0%BC%D0%B0%D1%88_%D0%9F%D0%B8%D0%BB%D0%B8%D0%BF_%D0%9C%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9%D0%BE%D0%B2%D0%B8%D1%87">
                         https://uk.wikipedia.org/wiki/Philip Harmash
                       </a>

@@ -1,11 +1,8 @@
-import its from "../../photos/its.jpg";
-import team from "../../photos/team.jpg";
-import very from "../../photos/very.jpg";
 import { useEffect, useState } from "react";
 import WrapperForSection from "../Wrapper and Button/WrapperForSection";
 
 function MySlider() {
-  const pictures = [very, team, its];
+  const pictures = ["/photos/very.jpg", "/photos/team.jpg", "/photos/its.jpg"];
   const PAGE_WIDTH = window.innerWidth;
   const [position, setPosition] = useState(0);
   let currentPosition = position;

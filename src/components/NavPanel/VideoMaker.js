@@ -1,6 +1,5 @@
 import Button from "../Wrapper and Button/Button";
 import WrapperForSection from "../Wrapper and Button/WrapperForSection";
-import videoMaker from "../../photos/VideoMaker.jpg";
 import { NavLink } from "react-router-dom";
 
 export default function VideoMaker() {
@@ -12,7 +11,7 @@ export default function VideoMaker() {
             <div className="intr">
               <div className="block-image">
                 <div className="image-container">
-                  <img src={videoMaker} alt="" />
+                  <img src="/photos/VideoMaker.jpg" alt="" />
                 </div>
               </div>
             </div>

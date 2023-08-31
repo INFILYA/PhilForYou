@@ -1,11 +1,5 @@
 import { NavLink } from "react-router-dom";
 import WrapperForSection from "../Wrapper and Button/WrapperForSection";
-import videoMaker from "../../photos/VideoMaker.jpg";
-import lesson from "../../photos/lesson.jpg";
-import Tshirt from "../../photos/T-shirt.jpg";
-import Cap from "../../photos/Cap.jpg";
-import Sleeves from "../../photos/Sleeves.jpg";
-import Gloves from "../../photos/Gloves.jpg";
 import { useEffect, useState } from "react";
 
 export default function Shop() {
@@ -15,31 +9,55 @@ export default function Shop() {
     {
       category: "Accessories",
       name: "Gloves",
-      image: Gloves,
+      image: "/photos/Gloves.jpg",
       price: 10,
       size: ["small", "medium"],
+      description: "Perfect Choice for every athlete",
+      features: ["some Text"],
     },
     {
       category: "Online Services",
       name: "Volleyball Advice Mentorship",
-      image: lesson,
+      image: "/photos/lesson.jpg",
       price: 95,
+      description: "",
+      features: ["some Text"],
     },
     {
       category: "Online Services",
       name: "Create Video Highlights",
-      image: videoMaker,
+      image: "/photos/VideoMaker.jpg",
       price: 300,
+      description: "",
+      features: ["some Text"],
     },
-    { category: "Clothes", name: "Cap", image: Cap, price: 25, size: ["small", "medium", "larg"] },
+    {
+      category: "Clothes",
+      name: "Cap",
+      image: "/photos/Cap.jpg",
+      price: 25,
+      size: ["small", "medium", "larg"],
+      description: "",
+      features: ["some Text"],
+    },
     {
       category: "Clothes",
       name: "T-shirt",
-      image: Tshirt,
+      image: "/photos/T-shirt.jpg",
       price: 30,
       size: ["XS", "S", "M", "L", "XL", "XXL"],
+      description: "",
+      features: ["some Text"],
     },
-    { category: "Clothes", name: "Sleeves", image: Sleeves, price: 20, size: ["small", "medium"] },
+    {
+      category: "Accessories",
+      name: "Sleeves",
+      image: "/photos/Sleeves.jpg",
+      price: 20,
+      size: ["small", "medium"],
+      description: "",
+      features: ["some Text"],
+    },
   ];
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(products));

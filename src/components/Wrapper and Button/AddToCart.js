@@ -4,6 +4,7 @@ import Button from "./Button";
 import { setAddProductsQuantity } from "../../state/slices/cartProductsQuantitySlice";
 import { setAddProductsPrice } from "../../state/slices/cartProductsPriceSlice";
 import { setProduct } from "../../state/slices/cartTotalProductsSlice";
+import { NavLink } from "react-router-dom";
 
 export default function AddToCart({ product }) {
   const dispatch = useDispatch();
@@ -27,34 +28,65 @@ export default function AddToCart({ product }) {
   }
   const isSizeExist = "size" in product;
   return (
-    <div>
-      {isSizeExist && (
-        <div className="product-size-wrapper">
-          <label>Size</label>
+    <>
+      <div style={{ margin: "-4.6vmax 0 4.6vmax 0" }}>
+        <NavLink to={`/Shop`}>
+          <Button text={"Back to Shop"} type={"text"} />
+        </NavLink>
+      </div>
+      <section className="product-item-summary">
+        <div className="product-item-gallery">
+          <img src={product.image} alt="" />
+        </div>
+        <div className="product-item-description">
+          <h1>{product.name}</h1>
+          <div className="product-price-wrapper">
+            <div>$ {product.price}.00</div>
+          </div>
+          <div className="product-description-wrapper">
+            <div>{product?.description}</div>
+          </div>
+          {isSizeExist && (
+            <div className="product-size-wrapper">
+              <div className="variant-option">
+                <div className="label">Size:</div>
+                <div className="variant-select-wrapper">
+                  <select onChange={(e) => setSize(e.target.value)}>
+                    <option defaultValue="Select size">Select size</option>
+                    {product?.size.map((size) => (
+                      <option key={size} value={size}>
+                        {size}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+          )}
+          <div className="product-quantity-wrapper">
+            <div className="label">Quantity</div>
+            <div>
+              <input
+                type="number"
+                onChange={(e) => setQuantity(e.target.value)}
+                value={quantity}
+                min={1}
+              ></input>
+            </div>
+          </div>
           <div>
-            <select onChange={(e) => setSize(e.target.value)}>
-              <option defaultValue="Select size">Select size</option>
-              {product?.size.map((size) => (
-                <option key={size} value={size}>
-                  {size}
-                </option>
-              ))}
-            </select>
+            <Button onClick={sendProductInfo} text={"Add to cart"} type={"text"} />
           </div>
         </div>
-      )}
-      <div className="product-quantity-wrapper">
-        <label>Quantity</label>
-        <div>
-          <input
-            type="number"
-            onChange={(e) => setQuantity(e.target.value)}
-            value={quantity}
-            min={1}
-          ></input>
+      </section>
+      <div className="product-item-additional">
+        <div className="features-wrapper">
+          <p>Features:</p>
+          {product?.features.map((item) => (
+            <ul key={item}>{item}</ul>
+          ))}
         </div>
       </div>
-      <Button onClick={sendProductInfo} text={"Add to cart"} type={"text"} />
-    </div>
+    </>
   );
 }
