@@ -20,6 +20,7 @@ header .barWrapper .innerContainer {
   align-items: center;
   width: 100%;
   height: inherit;
+  min-height: 10vh;
 }
 header .barWrapper .innerContainer .header-burger button {
   background-color: transparent;
@@ -123,24 +124,25 @@ header .barWrapper .innerContainer .actions .lessonBtn button {
 }
 
 @media screen and (max-width: 767px) {
-  header .barWrapper .innerContainer .lessonBtn {
+  header .barWrapper .innerContainer .titleNavWrapper .logo img {
+    max-height: 54px;
+  }
+  header .barWrapper .innerContainer .header-burger .lessonBtn {
     position: fixed;
     bottom: 30vh;
     right: 5%;
   }
-  header .barWrapper .innerContainer .lessonBtn a {
+  header .barWrapper .innerContainer .header-burger .lessonBtn a {
     text-decoration: none;
   }
-  header .barWrapper .innerContainer .lessonBtn button {
+  header .barWrapper .innerContainer .header-burger .lessonBtn button {
     padding: 1.5em;
     border-radius: 40px;
     border: none;
     cursor: pointer;
     display: flex;
     animation: rotating 2s linear infinite;
-  }
-  header .barWrapper .innerContainer .titleNavWrapper .logo img {
-    max-height: 54px;
+    background-color: #ce130c;
   }
   header .barWrapper .innerContainer .header-burger .shoping-cart-wrapper .count {
     margin: 0px 5px;

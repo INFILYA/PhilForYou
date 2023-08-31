@@ -96,6 +96,11 @@ export default function Header() {
                   </button>
                 </div>
               </div>
+              <div className="lessonBtn">
+                <NavLink to={"Book a Lesson"}>
+                  <Button text={"Book a Lesson"} type={"text"} />
+                </NavLink>
+              </div>
             </div>
           )}
         </div>

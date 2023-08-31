@@ -18,6 +18,7 @@ header {
       align-items: center;
       width: 100%;
       height: inherit;
+      min-height: 10vh;
       .header-burger {
         button {
           background-color: transparent;
@@ -131,22 +132,6 @@ header {
   header {
     .barWrapper {
       .innerContainer {
-        .lessonBtn {
-          position: fixed;
-          bottom: 30vh;
-          right: 5%;
-          a {
-            text-decoration: none;
-          }
-          button {
-            padding: 1.5em;
-            border-radius: 40px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            animation: rotating 2s linear infinite;
-          }
-        }
         .titleNavWrapper {
           .logo {
             img {
@@ -155,6 +140,23 @@ header {
           }
         }
         .header-burger {
+          .lessonBtn {
+            position: fixed;
+            bottom: 30vh;
+            right: 5%;
+            a {
+              text-decoration: none;
+            }
+            button {
+              padding: 1.5em;
+              border-radius: 40px;
+              border: none;
+              cursor: pointer;
+              display: flex;
+              animation: rotating 2s linear infinite;
+              background-color: #ce130c;
+            }
+          }
           .shoping-cart-wrapper {
             .count {
               margin: 0px 5px;

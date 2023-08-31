@@ -12,12 +12,34 @@ export default function Shop() {
   const [categoryChecked, setCategoryChecked] = useState("Show All");
   const categorys = ["Accessories", "Online Services", "Clothes", "Show All"];
   const products = [
-    { category: "Accessories", name: "Gloves", image: Gloves, price: 10 },
-    { category: "Online Services", name: "Volleyball Advice Mentorship", image: lesson, price: 95 },
-    { category: "Online Services", name: "Create Video Highlights", image: videoMaker, price: 300 },
-    { category: "Clothes", name: "Cap", image: Cap, price: 25 },
-    { category: "Clothes", name: "T-shirt", image: Tshirt, price: 30 },
-    { category: "Clothes", name: "Sleeves", image: Sleeves, price: 20 },
+    {
+      category: "Accessories",
+      name: "Gloves",
+      image: Gloves,
+      price: 10,
+      size: ["small", "medium"],
+    },
+    {
+      category: "Online Services",
+      name: "Volleyball Advice Mentorship",
+      image: lesson,
+      price: 95,
+    },
+    {
+      category: "Online Services",
+      name: "Create Video Highlights",
+      image: videoMaker,
+      price: 300,
+    },
+    { category: "Clothes", name: "Cap", image: Cap, price: 25, size: ["small", "medium", "larg"] },
+    {
+      category: "Clothes",
+      name: "T-shirt",
+      image: Tshirt,
+      price: 30,
+      size: ["XS", "S", "M", "L", "XL", "XXL"],
+    },
+    { category: "Clothes", name: "Sleeves", image: Sleeves, price: 20, size: ["small", "medium"] },
   ];
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(products));

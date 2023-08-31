@@ -71,7 +71,7 @@ textarea:focus {
   font-weight: 600;
 }
 section {
-  align-items: flex-end;
+  min-height: 60vh;
   display: flex;
   position: relative;
   box-sizing: border-box;
@@ -94,12 +94,12 @@ section {
         display: flex;
         transition-duration: 1700ms;
         transition-timing-function: ease-in-out;
-        min-height: 66vh;
+        min-height: 60vh;
         .slider-item {
           object-fit: cover;
           width: 100vw;
           opacity: 0.95;
-          filter: contrast(90%) grayscale(100%);
+          filter: contrast(70%) grayscale(100%);
         }
       }
     }

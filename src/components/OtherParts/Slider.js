@@ -22,7 +22,7 @@ function MySlider() {
   }, [currentPosition, PAGE_WIDTH, maxLengthOfAllItems]);
   return (
     <WrapperForSection
-      styleSection={{ minHeight: "66vh" }}
+      styleSection={{ alignItems: "flex-end" }}
       background={
         <div>
           <div className="all-items-container" style={{ transform: `translateX(${position}px)` }}>
