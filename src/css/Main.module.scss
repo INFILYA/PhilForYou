@@ -160,10 +160,13 @@ section {
         transition-duration: 1700ms;
         transition-timing-function: ease-in-out;
         min-height: 60vh;
+        // max-height: 60vh;
         .slider-item {
           object-fit: cover;
           width: 100vw;
           opacity: 0.95;
+          aspect-ratio: 16/9;
+          object-fit: cover;
           filter: contrast(70%) grayscale(100%);
         }
       }
