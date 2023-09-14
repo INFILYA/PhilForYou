@@ -20,7 +20,7 @@ export default function Shop() {
       name: "Phil For You Mentorship",
       image: "/photos/lesson.jpg",
       price: 95,
-      description: "",
+      description: "Advice to improve your level of game",
       features: ["some Text"],
     },
     {
@@ -28,7 +28,7 @@ export default function Shop() {
       name: "Create Video Highlights",
       image: "/photos/VideoMaker.jpg",
       price: 300,
-      description: "",
+      description: "Make your highlights famous",
       features: ["some Text"],
     },
     {
@@ -37,7 +37,7 @@ export default function Shop() {
       image: "/photos/Cap.jpg",
       price: 25,
       size: ["small", "medium", "larg"],
-      description: "",
+      description: "Simple cap",
       features: ["some Text"],
     },
     {
@@ -46,7 +46,7 @@ export default function Shop() {
       image: "/photos/T-shirt.jpg",
       price: 30,
       size: ["XS", "S", "M", "L", "XL", "XXL"],
-      description: "",
+      description: "Modern T-shirt for everyday practices",
       features: ["some Text"],
     },
     {
@@ -55,7 +55,7 @@ export default function Shop() {
       image: "/photos/Curry 10.jpg",
       price: 120,
       size: ["7", "8", "9", "10", "11", "12", "13"],
-      description: "",
+      description: "Best choise for volleyball players in market",
       features: ["some Text"],
     },
   ];

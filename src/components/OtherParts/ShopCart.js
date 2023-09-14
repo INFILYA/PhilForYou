@@ -33,50 +33,51 @@ export default function ShopCart() {
     <WrapperForSection
       styleSection={{ marginTop: "-3vw" }}
       content={
-        !cartIsEmpty ? (
-          <div className="cart-container">
-            <div>
-              <h3 style={{ marginTop: 0 }}>Shoping Cart</h3>
-              <p>The cart is empty</p>
-            </div>
-            <NavLink to={`/Shop`}>
-              <Button text={"Start shoping"} type={"text"} />
-            </NavLink>
-          </div>
-        ) : (
-          <>
-            <h3 style={{ marginTop: 0 }}>Shoping Cart</h3>
-            <div>
-              {cartTotalProducts.map((product) => (
-                <div key={product.name + product.size}>
-                  <div>
-                    Chosen Product: <strong>{product.name}</strong>
-                  </div>
-                  <div>
-                    Quntity: <strong>{product.quantity}</strong>
-                  </div>
-                  {product.size && (
+        <>
+          <h3 style={{ marginTop: 0 }}>Shoping Cart</h3>
+          {!cartIsEmpty ? (
+            <>
+              <div>
+                <p>The cart is empty</p>
+              </div>
+              <NavLink to={`/Shop`}>
+                <Button text={"Start shoping"} type={"text"} />
+              </NavLink>
+            </>
+          ) : (
+            <>
+              <div>
+                {cartTotalProducts.map((product) => (
+                  <div key={product.name + product.size}>
                     <div>
-                      Size: <strong>{product.size}</strong>
+                      Chosen Product: <strong>{product.name}</strong>
                     </div>
-                  )}
-                  <div>
-                    Price: <strong>$ {product.price}.00</strong>
+                    <div>
+                      Quntity: <strong>{product.quantity}</strong>
+                    </div>
+                    {product.size && (
+                      <div>
+                        Size: <strong>{product.size}</strong>
+                      </div>
+                    )}
+                    <div>
+                      Price: <strong>$ {product.price}.00</strong>
+                    </div>
+                    <button onClick={() => increaseQuantityOfProduct(product)}>+</button>
+                    <button
+                      onClick={() => reduceQuantityOfProduct(product)}
+                      disabled={product.quantity === 1}
+                    >
+                      -
+                    </button>
                   </div>
-                  <button onClick={() => increaseQuantityOfProduct(product)}>+</button>
-                  <button
-                    onClick={() => reduceQuantityOfProduct(product)}
-                    disabled={product.quantity === 1}
-                  >
-                    -
-                  </button>
-                </div>
-              ))}
-              <h3>Total Price: ${totalPrice}.00</h3>
-              <h3>Total Quantity: {totalQuantity}</h3>
-            </div>
-          </>
-        )
+                ))}
+                <h3>Total Price: ${totalPrice}.00</h3>
+                <h3>Total Quantity: {totalQuantity}</h3>
+              </div>
+            </>
+          )}
+        </>
       }
     />
   );
