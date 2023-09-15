@@ -1,26 +1,29 @@
-.footer {
+footer {
   margin-top: auto;
   position: relative;
   z-index: 0;
   align-items: center;
 }
-.footer section {
+footer .footer {
   align-items: center;
-  min-height: 30vh;
+  min-height: 33vh;
   background-color: #edecea;
   padding-top: 0;
+  display: flex;
 }
-.footer section .content-wrapper {
-  padding-top: 5vw;
-  padding-bottom: 5vw;
+footer .footer .content-wrapper {
+  padding: 3.3vmax 3.3vw;
   box-sizing: border-box;
   width: 100%;
 }
-.footer section .content-wrapper .content {
+footer .footer .content-wrapper .content {
   display: block;
 }
-.footer section .content-wrapper .content h1 {
+footer .footer .content-wrapper .content h1 {
   color: black;
+}
+footer .footer .content-wrapper .content h3 {
+  margin-top: 0;
 }
 
 /*# sourceMappingURL=newFooter.css.map */

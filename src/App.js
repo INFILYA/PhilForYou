@@ -20,8 +20,22 @@ import CreateVideoHighlights from "./components/NavPanel/Shop panel/CreateVideoH
 import Gloves from "./components/NavPanel/Shop panel/Gloves";
 import Curry10 from "./components/NavPanel/Shop panel/Curry10";
 import PhilForYouMentorship from "./components/NavPanel/Shop panel/PhilForYouMentorship";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { setLocalStorageProducts } from "./state/slices/cartTotalProductsSlice";
+import { setCardProductsQuantity } from "./state/slices/cartProductsQuantitySlice";
+import { setCartProductsPrice } from "./state/slices/cartProductsPriceSlice";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const cartContent = JSON.parse(localStorage.getItem("cartContent"));
+    const cartProductsQuantity = JSON.parse(localStorage.getItem("cartProductsQuantity"));
+    const cartProductsPrice = JSON.parse(localStorage.getItem("cartProductsPrice"));
+    dispatch(setLocalStorageProducts(cartContent));
+    dispatch(setCardProductsQuantity(cartProductsQuantity));
+    dispatch(setCartProductsPrice(cartProductsPrice));
+  }, [dispatch]);
   return (
     <>
       <header>

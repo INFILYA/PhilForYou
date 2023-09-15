@@ -19,14 +19,12 @@ function MySlider() {
   }, [currentPosition, PAGE_WIDTH, maxLengthOfAllItems]);
   return (
     <WrapperForSection
-      styleSection={{ alignItems: "flex-end" }}
+    className={"slider-section"}
       background={
-        <div>
-          <div className="all-items-container" style={{ transform: `translateX(${position}px)` }}>
-            {pictures.map((pick) => (
-              <img src={pick} alt="" className="slider-item" key={pick} />
-            ))}
-          </div>
+        <div className="all-items-container" style={{ transform: `translateX(${position}px)` }}>
+          {pictures.map((pick) => (
+            <img src={pick} alt="" className="slider-item" key={pick} />
+          ))}
         </div>
       }
       content={

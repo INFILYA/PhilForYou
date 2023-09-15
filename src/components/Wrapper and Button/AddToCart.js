@@ -10,11 +10,17 @@ export default function AddToCart({ product }) {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState("");
-  function sendProductInfo() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [addButtonText, setAddButtonText] = useState("Add to cart");
+  const later = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  async function sendProductInfo() {
     if ((size === "" || size === "Select size") && isSizeExist) {
       alert("Unable to Add Item. Please select the Size option.");
       return;
     }
+    setIsLoading(!isLoading);
+    setAddButtonText("Adding...");
+    await later(1500);
     dispatch(setAddProductsQuantity(+quantity));
     dispatch(setAddProductsPrice(+product.price * +quantity));
     dispatch(
@@ -25,6 +31,10 @@ export default function AddToCart({ product }) {
         size: size,
       })
     );
+    setAddButtonText("Added!");
+    await later(1500);
+    setIsLoading((prev) => !prev);
+    setAddButtonText("Add to cart");
   }
   const isSizeExist = "size" in product;
   return (
@@ -75,7 +85,13 @@ export default function AddToCart({ product }) {
             </div>
           </div>
           <div>
-            <Button onClick={sendProductInfo} text={"Add to cart"} type={"text"} />
+            <Button
+              onClick={sendProductInfo}
+              text={addButtonText}
+              type={"text"}
+              disabled={isLoading}
+              style={isLoading ? { opacity: 0.7 } : {}}
+            />
           </div>
         </div>
       </section>

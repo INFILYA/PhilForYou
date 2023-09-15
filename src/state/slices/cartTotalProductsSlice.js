@@ -20,8 +20,12 @@ export const cartTotalProducts = createSlice({
       } else {
         state.cartTotalProducts = [...state.cartTotalProducts, action.payload];
       }
+      localStorage.setItem("cartContent", JSON.stringify(state.cartTotalProducts));
+    },
+    setLocalStorageProducts: (state, action) => {
+      state.cartTotalProducts = action.payload;
     },
   },
 });
-export const { setProduct } = cartTotalProducts.actions;
+export const { setProduct, setLocalStorageProducts } = cartTotalProducts.actions;
 export default cartTotalProducts.reducer;

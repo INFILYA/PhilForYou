@@ -6,15 +6,25 @@ export const cartProductsQuantity = createSlice({
   reducers: {
     setAddProductsQuantity: (state, action) => {
       state.cartProductsQuantity = state.cartProductsQuantity + action.payload;
+      localStorage.setItem("cartProductsQuantity", JSON.stringify(state.cartProductsQuantity));
     },
     setMinusOneProductsQuantity: (state) => {
       state.cartProductsQuantity = state.cartProductsQuantity - 1;
+      localStorage.setItem("cartProductsQuantity", JSON.stringify(state.cartProductsQuantity));
     },
     setPlusOneProductsQuantity: (state) => {
       state.cartProductsQuantity = state.cartProductsQuantity + 1;
+      localStorage.setItem("cartProductsQuantity", JSON.stringify(state.cartProductsQuantity));
+    },
+    setCardProductsQuantity: (state, action) => {
+      state.cartProductsQuantity = action.payload;
     },
   },
 });
-export const { setAddProductsQuantity, setMinusOneProductsQuantity, setPlusOneProductsQuantity } =
-  cartProductsQuantity.actions;
+export const {
+  setAddProductsQuantity,
+  setMinusOneProductsQuantity,
+  setPlusOneProductsQuantity,
+  setCardProductsQuantity,
+} = cartProductsQuantity.actions;
 export default cartProductsQuantity.reducer;

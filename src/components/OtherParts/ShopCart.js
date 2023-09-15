@@ -31,7 +31,7 @@ export default function ShopCart() {
   console.log(cartTotalProducts);
   return (
     <WrapperForSection
-      styleSection={{ marginTop: "-3vw" }}
+    className={"shopCart-section"}
       content={
         <>
           <h3 style={{ marginTop: 0 }}>Shoping Cart</h3>

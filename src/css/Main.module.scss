@@ -58,6 +58,16 @@ textarea:focus {
   color: white;
   font-weight: 600;
 }
+.slider-section {
+  align-items: flex-end;
+  min-height: 66vh;
+}
+.shopCart-section {
+  margin-top: -3vw;
+}
+.shop-section {
+  background-color: #edecea;
+}
 section {
   min-height: 60vh;
   display: flex;
@@ -73,7 +83,6 @@ section {
   }
   .product-item-summary {
     align-items: flex-start;
-    background-color: rgb(237, 236, 234);
     min-height: auto;
     .label {
       margin-bottom: 0.5em;
@@ -159,13 +168,14 @@ section {
         display: flex;
         transition-duration: 1700ms;
         transition-timing-function: ease-in-out;
-        min-height: 60vh;
-        // max-height: 60vh;
+        width: 100vw;
         .slider-item {
           object-fit: cover;
           width: 100vw;
+          // width: 100%;
+          min-height: 66vh;
           opacity: 0.95;
-          aspect-ratio: 16/9;
+          // height: 100%;
           object-fit: cover;
           filter: contrast(70%) grayscale(100%);
         }

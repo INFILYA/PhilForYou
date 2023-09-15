@@ -13,6 +13,15 @@ header .barWrapper {
   pointer-events: auto;
   background-color: black;
 }
+header .barWrapper .header-border {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
 header .barWrapper .innerContainer {
   position: relative;
   z-index: 1;

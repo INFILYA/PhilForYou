@@ -36,6 +36,7 @@ export default function Header() {
   return (
     <>
       <div className="barWrapper">
+        <div className="header-border"></div>
         <div className="innerContainer">
           <div className="titleNavWrapper">
             <div className="logo">
