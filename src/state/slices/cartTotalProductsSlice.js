@@ -25,7 +25,14 @@ export const cartTotalProducts = createSlice({
     setLocalStorageProducts: (state, action) => {
       state.cartTotalProducts = action.payload;
     },
+    setRemoveProductFromCart: (state, action) => {
+      state.cartTotalProducts = state.cartTotalProducts.filter(
+        (product) => product.name + product.size !== action.payload.name + action.payload.size
+      );
+      localStorage.setItem("cartContent", JSON.stringify(state.cartTotalProducts));
+    },
   },
 });
-export const { setProduct, setLocalStorageProducts } = cartTotalProducts.actions;
+export const { setProduct, setLocalStorageProducts, setRemoveProductFromCart } =
+  cartTotalProducts.actions;
 export default cartTotalProducts.reducer;

@@ -69,7 +69,9 @@ export default function Header() {
                   <NavLink to="/Shoping Cart">
                     <img alt="" src={shopCart}></img>
                   </NavLink>
-                  <div className="count">{cartProductsQuantity}</div>
+                  <div className="count">
+                    {cartProductsQuantity === 0 ? "" : cartProductsQuantity}
+                  </div>
                 </div>
                 <div className="lessonBtn">
                   <NavLink to={"Book a Lesson"}>

@@ -4,7 +4,6 @@ export default function Footer() {
   return (
     <WrapperForSection
       className={"footer"}
-      // contentClassName={"footer-wrapper-content"}
       content={
         <div>
           <h3>Philip Harmash</h3>

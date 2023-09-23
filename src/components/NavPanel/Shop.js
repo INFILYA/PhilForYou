@@ -4,71 +4,18 @@ import { useEffect, useState } from "react";
 
 export default function Shop() {
   const [categoryChecked, setCategoryChecked] = useState("Show All");
+  const [products, setProducts] = useState([]);
   const categorys = ["Accessories", "Online Services", "Clothes", "Shoes", "Show All"];
-  const products = [
-    {
-      category: "Accessories",
-      name: "Gloves",
-      image: "/photos/Gloves.jpg",
-      price: 10,
-      size: ["small", "medium"],
-      description: "Perfect Choice for every athlete",
-      features: ["some Text"],
-    },
-    {
-      category: "Online Services",
-      name: "Phil For You Mentorship",
-      image: "/photos/lesson.jpg",
-      price: 95,
-      description: "Advice to improve your level of game",
-      features: ["some Text"],
-    },
-    {
-      category: "Online Services",
-      name: "Create Video Highlights",
-      image: "/photos/VideoMaker.jpg",
-      price: 300,
-      description: "Make your highlights famous",
-      features: ["some Text"],
-    },
-    {
-      category: "Clothes",
-      name: "Cap",
-      image: "/photos/Cap.jpg",
-      price: 25,
-      size: ["small", "medium", "larg"],
-      description: "Simple cap",
-      features: ["some Text"],
-    },
-    {
-      category: "Clothes",
-      name: "T-shirt",
-      image: "/photos/T-shirt.jpg",
-      price: 30,
-      size: ["XS", "S", "M", "L", "XL", "XXL"],
-      description: "Modern T-shirt for everyday practices",
-      features: ["some Text"],
-    },
-    {
-      category: "Shoes",
-      name: "Curry 10",
-      image: "/photos/Curry 10.jpg",
-      price: 120,
-      size: ["7", "8", "9", "10", "11", "12", "13"],
-      description: "Best choise for volleyball players in market",
-      features: ["some Text"],
-    },
-  ];
   useEffect(() => {
-    localStorage.setItem("products", JSON.stringify(products));
-  });
+    setProducts(JSON.parse(localStorage.getItem("products")));
+  }, []);
 
   const filteredProducts = products
     .filter((item) => (categoryChecked === "Show All" ? item : item.category === categoryChecked))
     .sort((a, b) => a.category > b.category);
   return (
     <WrapperForSection
-    className={"shop-section"}
+      className={"shop-section"}
       content={
         <div className="shop-content-wrapper">
           <h2>Shop</h2>
