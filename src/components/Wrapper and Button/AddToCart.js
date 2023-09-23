@@ -20,7 +20,7 @@ export default function AddToCart({ product }) {
     }
     setIsLoading(!isLoading);
     setAddButtonText("Adding...");
-    await later(1500);
+    await later(1000);
     dispatch(setAddProductsQuantity(+quantity));
     dispatch(setAddProductsPrice(+product.price * +quantity));
     dispatch(
@@ -32,7 +32,7 @@ export default function AddToCart({ product }) {
       })
     );
     setAddButtonText("Added!");
-    await later(1500);
+    await later(1000);
     setIsLoading((prev) => !prev);
     setAddButtonText("Add to cart");
   }

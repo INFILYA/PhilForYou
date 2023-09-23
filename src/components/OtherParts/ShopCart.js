@@ -58,7 +58,9 @@ export default function ShopCart() {
                     <img src={product.image} alt="" />
                   </div>
                   <div className="product-name-size-wrapper">
-                    <strong>{product.name}</strong>
+                    <div className="product-name-wrapper">
+                      <strong>{product.name}</strong>
+                    </div>
                     {product.size && <div>Size: {product.size}</div>}
                   </div>
                   <div className="product-info-wrapper">
@@ -80,15 +82,24 @@ export default function ShopCart() {
                       </div>
                       <div className="button-remove-wrapper">
                         <button onClick={() => removeProductFromCart(product)}>
-                          <div>x</div>
+                          <div>X</div>
                         </button>
                       </div>
                     </div>
                   </div>
                 </div>
               ))}
-              <h3>Total Price: ${totalPrice}.00</h3>
-              <h3>Total Quantity: {totalQuantity}</h3>
+              <div className="create-order-wrapper">
+                <div>
+                  <h3>Total Price: ${totalPrice}.00</h3>
+                </div>
+                <div>
+                  <h3>Total Quantity: {totalQuantity}</h3>
+                </div>
+                <div>
+                  <Button text={"Check Out"} />
+                </div>
+              </div>
             </div>
           )}
         </div>

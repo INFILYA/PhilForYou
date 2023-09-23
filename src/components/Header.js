@@ -14,7 +14,6 @@ export default function Header() {
     "About me",
     "Lessons",
     "Highlight Video Maker",
-    "Volley Camp",
     "Contact",
     "News",
     "Reviews",
@@ -28,7 +27,7 @@ export default function Header() {
   }
   useEffect(() => {
     window.addEventListener("resize", checkWidthOfWindow);
-    width > 767 ? setSandwichMenu(false) : setSandwichMenu(true);
+    width > 768 ? setSandwichMenu(false) : setSandwichMenu(true);
     return () => {
       window.removeEventListener("resize", checkWidthOfWindow);
     };

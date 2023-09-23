@@ -9,11 +9,11 @@ function MySlider() {
   let maxLengthOfAllItems = (pictures.length - 1) * PAGE_WIDTH;
   useEffect(() => {
     while (currentPosition > -maxLengthOfAllItems) {
-      setTimeout(() => setPosition(currentPosition - PAGE_WIDTH), 5000);
+      setTimeout(() => setPosition(currentPosition - PAGE_WIDTH), 4000);
       return;
     }
     while (currentPosition < 0) {
-      setTimeout(() => setPosition(0), 5000);
+      setTimeout(() => setPosition(0), 4000);
       return;
     }
   }, [currentPosition, PAGE_WIDTH, maxLengthOfAllItems]);
