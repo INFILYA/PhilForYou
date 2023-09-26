@@ -61,7 +61,7 @@ header .barWrapper .innerContainer .titleNavWrapper {
   align-items: center;
 }
 header .barWrapper .innerContainer .titleNavWrapper .logo {
-  position: absolute;
+  position: relative;
 }
 header .barWrapper .innerContainer .titleNavWrapper .logo a {
   display: inline-block;
@@ -77,12 +77,13 @@ header .barWrapper .innerContainer .titleNavWrapper .logo img {
 }
 header .barWrapper .innerContainer .titleNavWrapper .logo .user-photo-wrapper {
   position: absolute;
-  top: 6%;
-  left: 64.355%;
+  top: 4%;
+  left: 63.355%;
+  width: 30%;
 }
 header .barWrapper .innerContainer .titleNavWrapper .logo .user-photo-wrapper img {
   border-radius: 50%;
-  width: 63px;
+  border: 5px solid red;
 }
 header .barWrapper .innerContainer .titleNavWrapper .logo div {
   text-align: center;

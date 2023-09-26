@@ -59,7 +59,7 @@ header {
         flex: 1 0 64%;
         align-items: center;
         .logo {
-          position: absolute;
+          position: relative;
           a {
             display: inline-block;
             max-width: 100%;
@@ -74,11 +74,12 @@ header {
           }
           .user-photo-wrapper {
             position: absolute;
-            top: 6%;
-            left: 64.355%;
+            top: 4%;
+            left: 63.355%;
+            width: 30%;
             img {
               border-radius: 50%;
-              width: 63px;
+              border: 5px solid red;
             }
           }
           div {

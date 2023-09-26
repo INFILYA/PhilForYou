@@ -22,9 +22,13 @@ import Button from "../Wrapper and Button/Button";
 import { doc, setDoc } from "firebase/firestore";
 import { auth, dataBase } from "../../fire-base-config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useState } from "react";
+import { later } from "../../utils/utilities";
 
 export default function ShopCart() {
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
+  const [gratefullMessage, setGratefullMessage] = useState(false);
   const [isRegistratedUser] = useAuthState(auth);
   const cartTotalProducts = useSelector((state) => state.cartTotalProducts.cartTotalProducts);
   const totalPrice = useSelector((state) => state.cartProductsPrice.cartProductsPrice);
@@ -56,11 +60,19 @@ export default function ShopCart() {
     minute: "numeric",
     second: "numeric",
   };
-  const Time = date.toLocaleDateString("en-US", options);
 
+  const Time = date.toLocaleDateString("en-GB", options);
   async function orderProducts() {
+    const orderesProductsName = [];
+    cartTotalProducts.map((item, index) => (orderesProductsName[index] = item.name));
     try {
-      const cartOrders = doc(dataBase, `Order from: ${isRegistratedUser?.email}`, Time);
+      setIsLoading(!isLoading);
+      const cartOrders = doc(
+        dataBase,
+        `Order from: ${isRegistratedUser?.email}`,
+        Time + " " + orderesProductsName
+      );
+      await later(1500);
       await setDoc(cartOrders, {
         ...cartTotalProducts,
         userInfo: userInfo || isRegistratedUser?.email,
@@ -71,6 +83,10 @@ export default function ShopCart() {
       dispatch(setLocalStorageProducts([]));
       dispatch(setCardProductsQuantity(0));
       dispatch(setCartProductsPrice(0));
+      setIsLoading(!isLoading);
+      setGratefullMessage(true);
+      await later(4000);
+      setGratefullMessage(false);
     } catch (err) {
       console.error(err);
     }
@@ -84,7 +100,11 @@ export default function ShopCart() {
           {!cartIsEmpty ? (
             <div className="empty-cart">
               <div>
-                <p>The cart is empty</p>
+                {gratefullMessage ? (
+                  <p>Thank you for choosing us! Soon manager will contact you.</p>
+                ) : (
+                  <p>The cart is empty</p>
+                )}
               </div>
               <NavLink to={`/Shop`}>
                 <Button text={"Start shoping"} type={"text"} />
@@ -137,11 +157,19 @@ export default function ShopCart() {
                   <h3>Total Quantity: {totalQuantity}</h3>
                 </div>
                 <div>
-                  <Button
-                    text={isRegistratedUser ? "Check Out" : "To continue need to Subscribe"}
-                    onClick={orderProducts}
-                    disabled={!isRegistratedUser}
-                  />
+                  {!isRegistratedUser ? (
+                    <Button
+                      text="To continue need to Subscribe"
+                      onClick={orderProducts}
+                      disabled={!isRegistratedUser}
+                    />
+                  ) : (
+                    <Button
+                      text={!isLoading ? "Check Out" : "Adding..."}
+                      onClick={orderProducts}
+                      disabled={isLoading}
+                    />
+                  )}
                 </div>
               </div>
             </div>

@@ -5,6 +5,7 @@ import { setAddProductsQuantity } from "../../state/slices/cartProductsQuantityS
 import { setAddProductsPrice } from "../../state/slices/cartProductsPriceSlice";
 import { setProduct } from "../../state/slices/cartTotalProductsSlice";
 import { NavLink } from "react-router-dom";
+import { later } from "../../utils/utilities";
 
 export default function AddToCart({ product }) {
   const dispatch = useDispatch();
@@ -12,7 +13,6 @@ export default function AddToCart({ product }) {
   const [size, setSize] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [addButtonText, setAddButtonText] = useState("Add to cart");
-  const later = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   async function sendProductInfo() {
     if ((size === "" || size === "Select size") && isSizeExist) {
       alert("Unable to Add Item. Please select the Size option.");
