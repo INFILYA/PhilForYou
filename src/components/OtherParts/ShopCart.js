@@ -168,7 +168,7 @@ export default function ShopCart() {
               </div>
             </div>
           )}
-        </div>
+        </div> 
       }
     />
   );
