@@ -60,18 +60,12 @@ export default function ShopCart() {
     minute: "numeric",
     second: "numeric",
   };
-
   const Time = date.toLocaleDateString("en-GB", options);
+
   async function orderProducts() {
-    const orderesProductsName = [];
-    cartTotalProducts.map((item, index) => (orderesProductsName[index] = item.name));
     try {
       setIsLoading(!isLoading);
-      const cartOrders = doc(
-        dataBase,
-        `Order from: ${isRegistratedUser?.email}`,
-        Time + " " + orderesProductsName
-      );
+      const cartOrders = doc(dataBase, `Order from: ${isRegistratedUser?.email}`, Time);
       await later(1500);
       await setDoc(cartOrders, {
         ...cartTotalProducts,
