@@ -13,6 +13,7 @@ export default function Header() {
   const [isRegistratedUser] = useAuthState(auth);
   const [width, setWidth] = useState(window.innerWidth);
   const [sandwichMenu, setSandwichMenu] = useState(false);
+  const [showNavPanel, setShowNavPanel] = useState(false);
   const navItems = [
     "About me",
     "Lessons",
@@ -35,7 +36,6 @@ export default function Header() {
       window.removeEventListener("resize", checkWidthOfWindow);
     };
   }, [width]);
-  const userInfo = isRegistratedUser?.email || isRegistratedUser?.displayName;
   return (
     <>
       <div className="barWrapper">
@@ -48,7 +48,6 @@ export default function Header() {
                 <div className="user-photo-wrapper">
                   <img src={isRegistratedUser?.photoURL} alt="" />
                 </div>
-                <div>{userInfo}</div>
               </NavLink>
             </div>
             {!sandwichMenu && (
@@ -95,14 +94,18 @@ export default function Header() {
                     <img alt="" src={shopCart}></img>
                   </NavLink>
                   <div className="count">{cartProductsQuantity}</div>
-                  <button>
-                    <div className="burger-box">
-                      <div className="burger-inner">
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                  <button type="text" onClick={() => setShowNavPanel(!showNavPanel)}>
+                    {!showNavPanel ? (
+                      <div className="burger-box">
+                        <div className="burger-inner">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                        </div>
                       </div>
-                    </div>
+                    ) : (
+                      <div className="close-burger-menu">X</div>
+                    )}
                   </button>
                 </div>
               </div>
@@ -115,6 +118,11 @@ export default function Header() {
           )}
         </div>
       </div>
+      {showNavPanel && (
+        <div className="burger-nav-menu-wrapper">
+          <div >Salut</div>
+        </div>
+      )}
     </>
   );
 }
