@@ -5,21 +5,20 @@ function MySlider() {
   const pictures = ["/photos/very.jpg", "/photos/team.jpg", "/photos/its.jpg"];
   const PAGE_WIDTH = window.innerWidth;
   const [position, setPosition] = useState(0);
-  let currentPosition = position;
   let maxLengthOfAllItems = (pictures.length - 1) * PAGE_WIDTH;
   useEffect(() => {
-    while (currentPosition > -maxLengthOfAllItems) {
-      setTimeout(() => setPosition(currentPosition - PAGE_WIDTH), 4000);
+    while (position > -maxLengthOfAllItems) {
+      setTimeout(() => setPosition(position - PAGE_WIDTH), 4000);
       return;
     }
-    while (currentPosition < 0) {
+    while (position < 0) {
       setTimeout(() => setPosition(0), 4000);
       return;
     }
-  }, [currentPosition, PAGE_WIDTH, maxLengthOfAllItems]);
+  }, [position, PAGE_WIDTH, maxLengthOfAllItems]);
   return (
     <WrapperForSection
-    className={"slider-section"}
+      className={"slider-section"}
       background={
         <div className="all-items-container" style={{ transform: `translateX(${position}px)` }}>
           {pictures.map((pick) => (

@@ -7,7 +7,6 @@ import Footer from "./components/Footer";
 import MainPart from "./components/MainPart";
 import Contact from "./components/NavPanel/Contact";
 import LessonsBlock from "./components/NavPanel/LessonsBlock";
-import NewsletterBlock from "./components/NavPanel/NewsletterBlock";
 import AboutMe from "./components/NavPanel/AboutMe";
 import BookLesson from "./components/OtherParts/BookLesson";
 import VideoMaker from "./components/NavPanel/VideoMaker";
@@ -25,65 +24,23 @@ import { useEffect } from "react";
 import { setLocalStorageProducts } from "./state/slices/cartTotalProductsSlice";
 import { setCardProductsQuantity } from "./state/slices/cartProductsQuantitySlice";
 import { setCartProductsPrice } from "./state/slices/cartProductsPriceSlice";
+import { getDocs, collection } from "firebase/firestore";
+import { dataBase } from "../src/fire-base-config/firebase";
+import Subscribe from "./components/NavPanel/Subscribe";
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    const products = [
-      {
-        category: "Accessories",
-        name: "Gloves",
-        image: "/photos/Gloves.jpg",
-        price: 10,
-        size: ["small", "medium"],
-        description: "Perfect Choice for every athlete",
-        features: ["some Text"],
-      },
-      {
-        category: "Online Services",
-        name: "Phil For You Mentorship",
-        image: "/photos/lesson.jpg",
-        price: 95,
-        description: "Advice to improve your level of game",
-        features: ["some Text"],
-      },
-      {
-        category: "Online Services",
-        name: "Create Video Highlights",
-        image: "/photos/VideoMaker.jpg",
-        price: 300,
-        description: "Make your highlights famous",
-        features: ["some Text"],
-      },
-      {
-        category: "Clothes",
-        name: "Cap",
-        image: "/photos/Cap.jpg",
-        price: 25,
-        size: ["small", "medium", "larg"],
-        description: "Simple cap",
-        features: ["some Text"],
-      },
-      {
-        category: "Clothes",
-        name: "T-shirt",
-        image: "/photos/T-shirt.jpg",
-        price: 30,
-        size: ["XS", "S", "M", "L", "XL", "XXL"],
-        description: "Modern T-shirt for everyday practices",
-        features: ["some Text"],
-      },
-      {
-        category: "Shoes",
-        name: "Curry 10",
-        image: "/photos/Curry 10.jpg",
-        price: 120,
-        size: ["7", "8", "9", "10", "11", "12", "13"],
-        description: "Best choise for volleyball players in market",
-        features: ["some Text"],
-      },
-    ];
-    localStorage.setItem("products", JSON.stringify(products));
+    async function getProducts() {
+      try {
+        const data = await getDocs(collection(dataBase, "products"));
+        const list = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+        localStorage.setItem("products", JSON.stringify(list));
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getProducts();
     const cartContent = JSON.parse(localStorage.getItem("cartContent"));
     const cartProductsQuantity = JSON.parse(localStorage.getItem("cartProductsQuantity"));
     const cartProductsPrice = JSON.parse(localStorage.getItem("cartProductsPrice"));
@@ -102,7 +59,7 @@ function App() {
             <Route path="/" element={<MainPart />} />
             <Route path="/Contact" element={<Contact />} />
             <Route path="/Lessons" element={<LessonsBlock />} />
-            <Route path="/News" element={<NewsletterBlock />} />
+            <Route path="/Subscribe" element={<Subscribe />} />
             <Route path="/About me" element={<AboutMe />} />
             <Route path="/Book a Lesson" element={<BookLesson />} />
             <Route path="/Highlight Video Maker" element={<VideoMaker />} />

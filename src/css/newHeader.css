@@ -29,7 +29,7 @@ header .barWrapper .innerContainer {
   align-items: center;
   width: 100%;
   height: inherit;
-  min-height: 10vh;
+  min-height: 137px;
 }
 header .barWrapper .innerContainer .header-burger button {
   background-color: transparent;
@@ -60,10 +60,14 @@ header .barWrapper .innerContainer .titleNavWrapper {
   flex: 1 0 64%;
   align-items: center;
 }
+header .barWrapper .innerContainer .titleNavWrapper .logo {
+  position: absolute;
+}
 header .barWrapper .innerContainer .titleNavWrapper .logo a {
   display: inline-block;
   max-width: 100%;
   max-height: 137px;
+  text-decoration: none;
 }
 header .barWrapper .innerContainer .titleNavWrapper .logo img {
   max-height: 137px;
@@ -71,10 +75,24 @@ header .barWrapper .innerContainer .titleNavWrapper .logo img {
   max-width: 100%;
   background-color: transparent;
 }
+header .barWrapper .innerContainer .titleNavWrapper .logo .user-photo-wrapper {
+  position: absolute;
+  top: 6%;
+  left: 64.355%;
+}
+header .barWrapper .innerContainer .titleNavWrapper .logo .user-photo-wrapper img {
+  border-radius: 50%;
+  width: 63px;
+}
+header .barWrapper .innerContainer .titleNavWrapper .logo div {
+  text-align: center;
+  color: white;
+}
 header .barWrapper .innerContainer .titleNavWrapper .navigation {
   text-align: right;
   margin-left: auto;
   padding-left: 2.5vw;
+  width: 70%;
 }
 header .barWrapper .innerContainer .titleNavWrapper .navigation nav {
   display: inline-flex;
@@ -134,6 +152,9 @@ header .barWrapper .innerContainer .actions .lessonBtn button {
 }
 
 @media screen and (max-width: 768px) {
+  header .barWrapper .innerContainer {
+    min-height: 10vh;
+  }
   header .barWrapper .innerContainer .titleNavWrapper .logo img {
     max-height: 54px;
   }

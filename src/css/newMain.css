@@ -69,6 +69,10 @@ textarea:focus {
   color: white;
   font-weight: 600;
 }
+.regular-button:disabled {
+  background-color: #edecea;
+  color: #000;
+}
 
 .slider-section {
   align-items: flex-end;
@@ -353,6 +357,18 @@ section .content-wrapper .content .newsletter-block form .newsletter-form-body .
   display: block;
   padding: 0.5rem 0;
   margin: 1rem 0 0 0;
+}
+section .content-wrapper .content .newsletter-block form .newsletter-form-body .sign-methods-wrapper {
+  margin: 10px;
+}
+section .content-wrapper .content .newsletter-block form .newsletter-form-body .sign-methods-wrapper button {
+  margin: 10px;
+  background-color: transparent;
+  border: none;
+}
+section .content-wrapper .content .newsletter-block form .newsletter-form-body .sign-methods-wrapper button:hover {
+  transform: translateY(-10px);
+  transition: 0.5s;
 }
 section .content-wrapper .content .lessons-block {
   padding-top: 17px;

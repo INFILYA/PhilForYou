@@ -18,6 +18,7 @@ export const cartProductsPrice = createSlice({
     },
     setCartProductsPrice: (state, action) => {
       state.cartProductsPrice = action.payload;
+      localStorage.setItem("cartProductsPrice", JSON.stringify(state.cartProductsPrice));
     },
   },
 });

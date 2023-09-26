@@ -22,6 +22,7 @@ export const cartProductsQuantity = createSlice({
     },
     setCardProductsQuantity: (state, action) => {
       state.cartProductsQuantity = action.payload;
+      localStorage.setItem("cartProductsQuantity", JSON.stringify(state.cartProductsQuantity));
     },
   },
 });

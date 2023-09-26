@@ -6,8 +6,11 @@ import instagram from "../photos/instagram.jpg";
 import Button from "./Wrapper and Button/Button";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../fire-base-config/firebase";
 
 export default function Header() {
+  const [isRegistratedUser] = useAuthState(auth);
   const [width, setWidth] = useState(window.innerWidth);
   const [sandwichMenu, setSandwichMenu] = useState(false);
   const navItems = [
@@ -15,9 +18,9 @@ export default function Header() {
     "Lessons",
     "Highlight Video Maker",
     "Contact",
-    "News",
     "Reviews",
     "Shop",
+    "Subscribe",
   ];
   const cartProductsQuantity = useSelector(
     (state) => state.cartProductsQuantity.cartProductsQuantity
@@ -32,6 +35,7 @@ export default function Header() {
       window.removeEventListener("resize", checkWidthOfWindow);
     };
   }, [width]);
+  const userInfo = isRegistratedUser?.email || isRegistratedUser?.displayName;
   return (
     <>
       <div className="barWrapper">
@@ -41,6 +45,10 @@ export default function Header() {
             <div className="logo">
               <NavLink to={"/"}>
                 <img src={Logo} alt=""></img>
+                <div className="user-photo-wrapper">
+                  <img src={isRegistratedUser?.photoURL} alt="" />
+                </div>
+                <div>{userInfo}</div>
               </NavLink>
             </div>
             {!sandwichMenu && (

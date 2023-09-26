@@ -57,6 +57,10 @@ textarea:focus {
   border-radius: 50px;
   color: white;
   font-weight: 600;
+  &:disabled {
+    background-color: #edecea;
+    color: #000;
+  }
 }
 .slider-section {
   align-items: flex-end;
@@ -255,10 +259,8 @@ section {
         .slider-item {
           object-fit: cover;
           width: 100vw;
-          // width: 100%;
           min-height: 66vh;
           opacity: 0.95;
-          // height: 100%;
           object-fit: cover;
           filter: contrast(70%) grayscale(100%);
         }
@@ -343,6 +345,18 @@ section {
               display: block;
               padding: 0.5rem 0;
               margin: 1rem 0 0 0;
+            }
+            .sign-methods-wrapper {
+              margin: 10px;
+              button {
+                margin: 10px;
+                background-color: transparent;
+                border: none;
+                &:hover {
+                  transform: translateY(-10px);
+                  transition: 0.5s;
+                }
+              }
             }
           }
         }

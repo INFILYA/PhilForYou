@@ -2,23 +2,34 @@ import { useDispatch, useSelector } from "react-redux";
 import WrapperForSection from "../Wrapper and Button/WrapperForSection";
 import {
   setAddProductsPrice,
+  setCartProductsPrice,
   setReduceProductsPrice,
   setRemoveProductPrice,
 } from "../../state/slices/cartProductsPriceSlice";
 import {
+  setCardProductsQuantity,
   setMinusOneProductsQuantity,
   setPlusOneProductsQuantity,
   setRemoveProductQuantity,
 } from "../../state/slices/cartProductsQuantitySlice";
-import { setProduct, setRemoveProductFromCart } from "../../state/slices/cartTotalProductsSlice";
+import {
+  setLocalStorageProducts,
+  setProduct,
+  setRemoveProductFromCart,
+} from "../../state/slices/cartTotalProductsSlice";
 import { NavLink } from "react-router-dom";
 import Button from "../Wrapper and Button/Button";
+import { doc, setDoc } from "firebase/firestore";
+import { auth, dataBase } from "../../fire-base-config/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function ShopCart() {
   const dispatch = useDispatch();
+  const [isRegistratedUser] = useAuthState(auth);
   const cartTotalProducts = useSelector((state) => state.cartTotalProducts.cartTotalProducts);
   const totalPrice = useSelector((state) => state.cartProductsPrice.cartProductsPrice);
   const totalQuantity = useSelector((state) => state.cartProductsQuantity.cartProductsQuantity);
+  const userInfo = useSelector((state) => state.userInfo.userInfo);
   const cartIsEmpty = cartTotalProducts.length;
   function increaseQuantityOfProduct(product) {
     dispatch(setAddProductsPrice(product.price / product.quantity));
@@ -34,6 +45,35 @@ export default function ShopCart() {
     dispatch(setRemoveProductFromCart(product));
     dispatch(setRemoveProductQuantity(product.quantity));
     dispatch(setRemoveProductPrice(product.price));
+  }
+
+  let date = new Date();
+  let options = {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+  };
+  const Time = date.toLocaleDateString("en-US", options);
+
+  async function orderProducts() {
+    try {
+      const cartOrders = doc(dataBase, `Order from: ${isRegistratedUser?.email}`, Time);
+      await setDoc(cartOrders, {
+        ...cartTotalProducts,
+        userInfo: userInfo || isRegistratedUser?.email,
+        totalPrice: totalPrice,
+        totalQuantity: totalQuantity,
+        id: auth?.currentUser?.uid,
+      });
+      dispatch(setLocalStorageProducts([]));
+      dispatch(setCardProductsQuantity(0));
+      dispatch(setCartProductsPrice(0));
+    } catch (err) {
+      console.error(err);
+    }
   }
   return (
     <WrapperForSection
@@ -97,7 +137,11 @@ export default function ShopCart() {
                   <h3>Total Quantity: {totalQuantity}</h3>
                 </div>
                 <div>
-                  <Button text={"Check Out"} />
+                  <Button
+                    text={isRegistratedUser ? "Check Out" : "To continue need to Subscribe"}
+                    onClick={orderProducts}
+                    disabled={!isRegistratedUser}
+                  />
                 </div>
               </div>
             </div>
