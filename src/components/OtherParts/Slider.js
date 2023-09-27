@@ -18,7 +18,6 @@ function MySlider() {
   }, [position, PAGE_WIDTH, maxLengthOfAllItems]);
   return (
     <WrapperForSection
-      className={"slider-section"}
       background={
         <div className="all-items-container" style={{ transform: `translateX(${position}px)` }}>
           {pictures.map((pick) => (

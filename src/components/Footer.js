@@ -3,7 +3,6 @@ import WrapperForSection from "./Wrapper and Button/WrapperForSection";
 export default function Footer() {
   return (
     <WrapperForSection
-      className={"footer"}
       content={
         <div>
           <h3>Philip Harmash</h3>

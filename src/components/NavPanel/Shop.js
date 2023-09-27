@@ -15,7 +15,7 @@ export default function Shop() {
     .sort((a, b) => a.category > b.category);
   return (
     <WrapperForSection
-      className={"shop-section"}
+      background={<div className="shop-background"></div>}
       content={
         <div className="shop-content-wrapper">
           <h2>Shop</h2>

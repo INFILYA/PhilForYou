@@ -3,12 +3,11 @@ footer {
   position: relative;
   z-index: 0;
   align-items: center;
-  .footer {
-    align-items: center;
-    min-height: 33vh;
-    background-color: #edecea;
-    padding-top: 0;
-    display: flex;
+  background-color: #edecea;
+  padding-top: 0;
+  display: flex;
+  section {
+    min-height: 25vmin;
     .content-wrapper {
       padding: 3.3vmax 3.3vw;
       box-sizing: border-box;

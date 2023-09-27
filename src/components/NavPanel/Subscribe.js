@@ -74,7 +74,6 @@ export default function Subscribe() {
   }
   return !isRegistratedUser ? (
     <WrapperForSection
-      styleContentWrapper={{ paddingBottom: 0 }}
       content={
         <div className="newsletter-block html-block">
           <form action="" onSubmit={(e) => submitUserInfo(e)}>
@@ -131,7 +130,7 @@ export default function Subscribe() {
       }
     />
   ) : (
-    <div style={{ display: "block", textAlign: "center", marginBottom: 20 }}>
+    <div className="logout-button-wrapper">
       <p>Thank you for subscribe {isRegistratedUser?.email}! All news will come on your Email!</p>
       <Button text={"Sign out"} onClick={logout} />
     </div>

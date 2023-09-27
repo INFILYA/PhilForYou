@@ -39,7 +39,7 @@ export default function AddToCart({ product }) {
   const isSizeExist = "size" in product;
   return (
     <>
-      <div style={{ margin: "-4.6vmax 0 4.6vmax 0" }}>
+      <div style={{ margin: "-1vmax 0 2vmax 0" }}>
         <NavLink to={`/Shop`}>
           <Button text={"Back to Shop"} type={"text"} />
         </NavLink>

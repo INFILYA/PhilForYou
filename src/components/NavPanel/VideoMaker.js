@@ -10,7 +10,7 @@ export default function VideoMaker() {
           <figure>
             <div className="intr">
               <div className="block-image">
-                <div className="image-container">
+                <div className="image-container filtered">
                   <img src="/photos/VideoMaker.jpg" alt="" />
                 </div>
               </div>

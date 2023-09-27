@@ -5,10 +5,5 @@ export default function PhilForYouMentorship() {
   const product = JSON.parse(localStorage.getItem("products")).find(
     (item) => item.name === "Phil For You Mentorship"
   );
-  return (
-    <WrapperForSection
-      styleSection={{ backgroundColor: "#edecea" }}
-      content={<AddToCart product={product} />}
-    />
-  );
+  return <WrapperForSection content={<AddToCart product={product} />} />;
 }
