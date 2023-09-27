@@ -166,7 +166,6 @@ textarea:focus {
 }
 
 section {
-  min-height: 60vh;
   display: flex;
   position: relative;
   box-sizing: border-box;
@@ -292,7 +291,6 @@ section .content-wrapper {
 }
 section .content-wrapper .content {
   width: 100%;
-  display: flex;
 }
 section .content-wrapper .content .html-block {
   padding-left: 17px;
@@ -316,8 +314,8 @@ section .content-wrapper .content .remark {
   font-weight: 600;
   color: whitesmoke;
   display: flex;
-  width: 75%;
-  min-height: 144px;
+  align-items: flex-end;
+  min-height: 50vh;
   text-shadow: 2vw 0 2vw black;
 }
 section .content-wrapper .content .newsletter-block {

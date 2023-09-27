@@ -156,7 +156,6 @@ textarea:focus {
 }
 
 section {
-  min-height: 60vh;
   display: flex;
   position: relative;
   box-sizing: border-box;
@@ -282,7 +281,6 @@ section {
     display: flex;
     .content {
       width: 100%;
-      display: flex;
       .html-block {
         padding-left: 17px;
         padding-right: 17px;
@@ -305,8 +303,8 @@ section {
         font-weight: 600;
         color: whitesmoke;
         display: flex;
-        width: 75%;
-        min-height: 144px;
+        align-items: flex-end;
+        min-height: 50vh;
         text-shadow: 2vw 0 2vw black;
       }
       .newsletter-block {
