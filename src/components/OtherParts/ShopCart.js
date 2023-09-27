@@ -87,7 +87,6 @@ export default function ShopCart() {
   }
   return (
     <WrapperForSection
-      className={"shopCart-section"}
       content={
         <div className="super-cart-container">
           <h2>Shoping Cart</h2>
@@ -168,7 +167,7 @@ export default function ShopCart() {
               </div>
             </div>
           )}
-        </div> 
+        </div>
       }
     />
   );

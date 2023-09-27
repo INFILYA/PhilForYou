@@ -54,7 +54,7 @@ textarea:focus {
   outline: 1px solid #ce130c;
 }
 .regular-button {
-  padding: 1.9em 3.173em;
+  padding: 1.5vmax 2vmax;
   background-color: #ce130c;
   border: none;
   border-radius: 50px;
@@ -282,6 +282,7 @@ section {
     display: flex;
     .content {
       width: 100%;
+      display: flex;
       .html-block {
         padding-left: 17px;
         padding-right: 17px;
@@ -304,7 +305,6 @@ section {
         font-weight: 600;
         color: whitesmoke;
         display: flex;
-        align-items: flex-end;
         width: 75%;
         min-height: 144px;
         text-shadow: 2vw 0 2vw black;

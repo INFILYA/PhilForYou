@@ -18,11 +18,8 @@ footer section .content-wrapper {
 footer section .content-wrapper .content {
   display: block;
 }
-footer section .content-wrapper .content h1 {
-  color: black;
-}
-footer section .content-wrapper .content h3 {
-  margin-top: 0;
+footer section .content-wrapper .content .personal-info-wrapper p {
+  font-size: calc((var(--normal-text-size-value) - 1) * 1.2vw + 0.65rem);
 }
 
 /*# sourceMappingURL=newFooter.css.map */

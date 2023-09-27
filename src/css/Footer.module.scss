@@ -14,11 +14,10 @@ footer {
       width: 100%;
       .content {
         display: block;
-        h1 {
-          color: black;
-        }
-        h3 {
-          margin-top: 0;
+        .personal-info-wrapper {
+          p {
+            font-size: calc((var(--normal-text-size-value) - 1) * 1.2vw + 0.65rem);
+          }
         }
       }
     }

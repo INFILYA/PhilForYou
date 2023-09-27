@@ -5,10 +5,12 @@ export default function Footer() {
     <WrapperForSection
       content={
         <div>
-          <h3>Philip Harmash</h3>
-          <div style={{ fontWeight: 600, fontSize: 17 }}>
-            <div>Infilya@ukr.net</div>
-            <div>+38 (066) 718-38-72</div>
+          <h4>Philip Harmash</h4>
+          <div className="personal-info-wrapper">
+            <p>
+              Infilya@ukr.net<br></br>
+              +38 (066) 718-38-72
+            </p>
           </div>
         </div>
       }

@@ -26,10 +26,12 @@ function MySlider() {
         </div>
       }
       content={
-        <div className="remark">
-          <h2>
-            <em>Transform your Fantasy into your Legacy</em>
-          </h2>
+        <div style={{ alignSelf: "flex-end", display: "flex" }}>
+          <div className="remark">
+            <h2>
+              <em>Transform your Fantasy into your Legacy</em>
+            </h2>
+          </div>
         </div>
       }
     />

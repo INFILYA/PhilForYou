@@ -109,18 +109,40 @@ export default function Header() {
                   </button>
                 </div>
               </div>
+            </div>
+          )}
+        </div>
+      </div>
+      {showNavPanel && (
+        <div className="header-menu-nav">
+          <nav>
+            <div className="header-menu-nav-folder-content">
+              <div className="container-header-menu-item">
+                {navItems.map((item) => (
+                  <NavLink to={`/${item}`} key={item}>
+                    <div>{item}</div>
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+            <div className="header-menu-actions">
+              <div className="social">
+                <a href="https://www.instagram.com/harmash_30/" className="instagram">
+                  <img alt="" src={instagram}></img>
+                </a>
+                <a href="https://www.facebook.com/philip.harmash/">
+                  <img alt="" src={facebook}></img>
+                </a>
+              </div>
+            </div>
+            <div className="header-menu-booklesson-button">
               <div className="lessonBtn">
                 <NavLink to={"Book a Lesson"}>
                   <Button text={"Book a Lesson"} type={"text"} />
                 </NavLink>
               </div>
             </div>
-          )}
-        </div>
-      </div>
-      {showNavPanel && (
-        <div className="burger-nav-menu-wrapper">
-          <div >Salut</div>
+          </nav>
         </div>
       )}
     </>
