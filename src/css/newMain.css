@@ -317,6 +317,7 @@ section .content-wrapper .content .remark {
   align-items: flex-end;
   min-height: 50vh;
   text-shadow: 2vw 0 2vw black;
+  width: 75%;
 }
 section .content-wrapper .content .newsletter-block {
   padding-top: 0px;

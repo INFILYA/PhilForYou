@@ -20,7 +20,7 @@ import Gloves from "./components/NavPanel/Shop panel/Gloves";
 import Curry10 from "./components/NavPanel/Shop panel/Curry10";
 import PhilForYouMentorship from "./components/NavPanel/Shop panel/PhilForYouMentorship";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { setLocalStorageProducts } from "./state/slices/cartTotalProductsSlice";
 import { setCardProductsQuantity } from "./state/slices/cartProductsQuantitySlice";
 import { setCartProductsPrice } from "./state/slices/cartProductsPriceSlice";
@@ -30,6 +30,8 @@ import Subscribe from "./components/NavPanel/Subscribe";
 
 function App() {
   const dispatch = useDispatch();
+  const [showBurgerNavPanel, setShowBurgerNavPanel] = useState(false);
+
   useEffect(() => {
     async function getProducts() {
       try {
@@ -50,34 +52,39 @@ function App() {
   }, [dispatch]);
   return (
     <>
-      <header>
-        <Header />
-      </header>
-      <main>
-        <article>
-          <Routes>
-            <Route path="/" element={<MainPart />} />
-            <Route path="/Contact" element={<Contact />} />
-            <Route path="/Lessons" element={<LessonsBlock />} />
-            <Route path="/Subscribe" element={<Subscribe />} />
-            <Route path="/About me" element={<AboutMe />} />
-            <Route path="/Book a Lesson" element={<BookLesson />} />
-            <Route path="/Highlight Video Maker" element={<VideoMaker />} />
-            <Route path="/Shoping Cart" element={<ShopCart />} />
-            <Route path="/Reviews" element={<Reviews />} />
-            <Route path="/Shop" element={<Shop />} />
-            <Route path="/Shop/Curry 10" element={<Curry10 />} />
-            <Route path="/Shop/Cap" element={<Cap />} />
-            <Route path="/Shop/Gloves" element={<Gloves />} />
-            <Route path="/Shop/Phil For You Mentorship" element={<PhilForYouMentorship />} />
-            <Route path="/Shop/Create Video Highlights" element={<CreateVideoHighlights />} />
-            <Route path="/Shop/T-shirt" element={<Tshirt />} />
-          </Routes>
-        </article>
-      </main>
-      <footer>
-        <Footer />
-      </footer>
+      <Header
+        showBurgerNavPanel={showBurgerNavPanel}
+        setShowBurgerNavPanel={setShowBurgerNavPanel}
+      />
+      {!showBurgerNavPanel && (
+        <main>
+          <article>
+            <Routes>
+              <Route path="/" element={<MainPart />} />
+              <Route path="/Contact" element={<Contact />} />
+              <Route path="/Lessons" element={<LessonsBlock />} />
+              <Route path="/Subscribe" element={<Subscribe />} />
+              <Route path="/About me" element={<AboutMe />} />
+              <Route path="/Book a Lesson" element={<BookLesson />} />
+              <Route path="/Highlight Video Maker" element={<VideoMaker />} />
+              <Route path="/Shoping Cart" element={<ShopCart />} />
+              <Route path="/Reviews" element={<Reviews />} />
+              <Route path="/Shop" element={<Shop />} />
+              <Route path="/Shop/Curry 10" element={<Curry10 />} />
+              <Route path="/Shop/Cap" element={<Cap />} />
+              <Route path="/Shop/Gloves" element={<Gloves />} />
+              <Route path="/Shop/Phil For You Mentorship" element={<PhilForYouMentorship />} />
+              <Route path="/Shop/Create Video Highlights" element={<CreateVideoHighlights />} />
+              <Route path="/Shop/T-shirt" element={<Tshirt />} />
+            </Routes>
+          </article>
+        </main>
+      )}
+      {!showBurgerNavPanel && (
+        <footer>
+          <Footer />
+        </footer>
+      )}
     </>
   );
 }

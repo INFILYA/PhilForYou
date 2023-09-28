@@ -9,11 +9,10 @@ import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../fire-base-config/firebase";
 
-export default function Header() {
+export default function Header({ showBurgerNavPanel, setShowBurgerNavPanel }) {
   const [isRegistratedUser] = useAuthState(auth);
   const [width, setWidth] = useState(window.innerWidth);
   const [sandwichMenu, setSandwichMenu] = useState(false);
-  const [showNavPanel, setShowNavPanel] = useState(false);
   const navItems = [
     "About me",
     "Lessons",
@@ -37,8 +36,8 @@ export default function Header() {
     };
   }, [width]);
   return (
-    <>
-      <div className="barWrapper">
+    <header>
+      <div className="barWrapper" style={showBurgerNavPanel ? { backgroundColor: "white" } : {}}>
         <div className="header-border"></div>
         <div className="innerContainer">
           <div className="titleNavWrapper">
@@ -91,11 +90,17 @@ export default function Header() {
               <div className="shoping-cart-wrapper">
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <NavLink to="/Shoping Cart">
-                    <img alt="" src={shopCart}></img>
+                    <img
+                      alt=""
+                      src={shopCart}
+                      onClick={() => setShowBurgerNavPanel(!showBurgerNavPanel)}
+                    ></img>
                   </NavLink>
-                  <div className="count">{cartProductsQuantity}</div>
-                  <button type="text" onClick={() => setShowNavPanel(!showNavPanel)}>
-                    {!showNavPanel ? (
+                  <div className="count" style={showBurgerNavPanel ? { color: "black" } : {}}>
+                    {cartProductsQuantity}
+                  </div>
+                  <button type="text" onClick={() => setShowBurgerNavPanel(!showBurgerNavPanel)}>
+                    {!showBurgerNavPanel ? (
                       <div className="burger-box">
                         <div className="burger-inner">
                           <div></div>
@@ -104,7 +109,12 @@ export default function Header() {
                         </div>
                       </div>
                     ) : (
-                      <div className="close-burger-menu">X</div>
+                      <div
+                        className="close-burger-menu"
+                        style={showBurgerNavPanel ? { color: "black" } : {}}
+                      >
+                        X
+                      </div>
                     )}
                   </button>
                 </div>
@@ -113,17 +123,17 @@ export default function Header() {
           )}
         </div>
       </div>
-      {showNavPanel && (
+      {showBurgerNavPanel && (
         <div className="header-menu-nav">
           <nav>
             <div className="header-menu-nav-folder-content">
-              <div className="container-header-menu-item">
-                {navItems.map((item) => (
-                  <NavLink to={`/${item}`} key={item}>
-                    <div>{item}</div>
+              {navItems.map((item) => (
+                <div className="container-header-menu-item" key={item}>
+                  <NavLink to={`/${item}`}>
+                    <div onClick={() => setShowBurgerNavPanel(!showBurgerNavPanel)}>{item}</div>
                   </NavLink>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
             <div className="header-menu-actions">
               <div className="social">
@@ -138,13 +148,17 @@ export default function Header() {
             <div className="header-menu-booklesson-button">
               <div className="lessonBtn">
                 <NavLink to={"Book a Lesson"}>
-                  <Button text={"Book a Lesson"} type={"text"} />
+                  <Button
+                    text={"Book a Lesson"}
+                    type={"text"}
+                    onClick={() => setShowBurgerNavPanel(!showBurgerNavPanel)}
+                  />
                 </NavLink>
               </div>
             </div>
           </nav>
         </div>
       )}
-    </>
+    </header>
   );
 }
