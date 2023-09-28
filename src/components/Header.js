@@ -43,7 +43,7 @@ export default function Header({ showBurgerNavPanel, setShowBurgerNavPanel }) {
           <div className="titleNavWrapper">
             <div className="logo">
               <NavLink to={"/"}>
-                <img src={Logo} alt=""></img>
+                <img src={Logo} alt="" onClick={() => setShowBurgerNavPanel(false)}></img>
                 <div className="user-photo-wrapper">
                   <img src={isRegistratedUser?.photoURL} alt="" />
                 </div>

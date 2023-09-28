@@ -160,7 +160,7 @@ header .barWrapper .innerContainer .actions .lessonBtn button {
     min-height: 10vh;
   }
   header .barWrapper .innerContainer .titleNavWrapper .logo img {
-    max-height: 54px;
+    max-height: 70px;
   }
   header .barWrapper .innerContainer .titleNavWrapper .logo .user-photo-wrapper {
     width: auto;
@@ -168,7 +168,7 @@ header .barWrapper .innerContainer .actions .lessonBtn button {
   header .barWrapper .innerContainer .titleNavWrapper .logo .user-photo-wrapper img {
     border-radius: 50%;
     border: 1px solid red;
-    max-height: 25px;
+    max-height: 33px;
   }
   header .barWrapper .innerContainer .header-burger .lessonBtn {
     position: fixed;
@@ -225,7 +225,6 @@ header .barWrapper .innerContainer .actions .lessonBtn button {
     flex-direction: column;
     flex-grow: 1;
     flex-shrink: 0;
-    overflow-y: scroll;
   }
   header .header-menu-nav nav .header-menu-nav-folder-content .container-header-menu-item {
     display: block;
@@ -236,7 +235,7 @@ header .barWrapper .innerContainer .actions .lessonBtn button {
   }
   header .header-menu-nav nav .header-menu-nav-folder-content .container-header-menu-item a {
     text-align: center;
-    font-size: calc((var(--normal-text-size-value) - 1) * 15vw + 1rem);
+    font-size: calc((var(--normal-text-size-value) - 1) * 10vw + 1rem);
     text-decoration: none;
     color: black;
     margin: 3vw 5vw;
@@ -246,6 +245,7 @@ header .barWrapper .innerContainer .actions .lessonBtn button {
   header .header-menu-nav nav .header-menu-nav-folder-content .container-header-menu-item a div {
     position: relative;
     display: inline-block;
+    font-family: "azonix", sans-serif;
   }
   header .header-menu-nav nav .header-menu-actions {
     padding-left: 3vw;

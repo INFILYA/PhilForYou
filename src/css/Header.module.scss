@@ -164,14 +164,14 @@ header {
         .titleNavWrapper {
           .logo {
             img {
-              max-height: 54px;
+              max-height: 70px;
             }
             .user-photo-wrapper {
               width: auto;
               img {
                 border-radius: 50%;
                 border: 1px solid red;
-                max-height: 25px;
+                max-height: 33px;
               }
             }
           }
@@ -237,7 +237,6 @@ header {
           flex-direction: column;
           flex-grow: 1;
           flex-shrink: 0;
-          overflow-y: scroll;
           .container-header-menu-item {
             display: block;
             padding-left: 3vw;
@@ -246,7 +245,7 @@ header {
             width: 100%;
             a {
               text-align: center;
-              font-size: calc((var(--normal-text-size-value) - 1) * 15vw + 1rem);
+              font-size: calc((var(--normal-text-size-value) - 1) * 10vw + 1rem);
               text-decoration: none;
               color: black;
               margin: 3vw 5vw;
@@ -255,6 +254,7 @@ header {
               div {
                 position: relative;
                 display: inline-block;
+                font-family: "azonix", sans-serif;
               }
             }
           }

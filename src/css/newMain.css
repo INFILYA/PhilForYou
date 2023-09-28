@@ -16,7 +16,7 @@ body {
 }
 
 h1 {
-  font-size: calc((var(--normal-text-size-value) - 1) * 1.2vw + 3rem);
+  font-size: calc((var(--normal-text-size-value) - 1) * 1.2vw + 2.35rem);
   margin: 0 0 3vh 0;
   font-family: "azonix", sans-serif;
 }
@@ -66,12 +66,13 @@ textarea:focus {
 }
 
 .regular-button {
-  padding: 1.5vmax 2vmax;
+  padding: 2vmax 2.5vmax;
   background-color: #ce130c;
   border: none;
   border-radius: 50px;
   color: white;
   font-weight: 600;
+  font-size: calc((var(--normal-text-size-value) - 1) * 1.2vmax + 0.65rem);
 }
 .regular-button:disabled {
   background-color: #edecea;
@@ -318,6 +319,19 @@ section .content-wrapper .content .remark {
   min-height: 50vh;
   text-shadow: 2vw 0 2vw black;
   width: 75%;
+}
+section .content-wrapper .content .navigate-slider {
+  display: flex;
+  justify-content: center;
+  margin-top: 2vw;
+}
+section .content-wrapper .content .navigate-slider button {
+  width: 1vw;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 2px solid black;
+  margin: 0 2vw;
+  background-color: white;
 }
 section .content-wrapper .content .newsletter-block {
   padding-top: 0px;
