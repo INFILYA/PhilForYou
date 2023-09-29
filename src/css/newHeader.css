@@ -144,7 +144,6 @@ header .barWrapper .innerContainer .actions .lessonBtn a {
   text-decoration: none;
 }
 header .barWrapper .innerContainer .actions .lessonBtn button {
-  padding: 2em 1.5em;
   border-radius: 20vw;
   border: none;
   cursor: pointer;

@@ -90,11 +90,7 @@ export default function Header({ showBurgerNavPanel, setShowBurgerNavPanel }) {
               <div className="shoping-cart-wrapper">
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <NavLink to="/Shoping Cart">
-                    <img
-                      alt=""
-                      src={shopCart}
-                      onClick={() => setShowBurgerNavPanel(!showBurgerNavPanel)}
-                    ></img>
+                    <img alt="" src={shopCart} onClick={() => setShowBurgerNavPanel(false)}></img>
                   </NavLink>
                   <div className="count" style={showBurgerNavPanel ? { color: "black" } : {}}>
                     {cartProductsQuantity}

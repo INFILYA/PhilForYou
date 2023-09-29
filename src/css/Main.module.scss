@@ -90,38 +90,29 @@ textarea:focus {
       width: 100%;
       box-sizing: border-box;
       .image-wrapper {
-        width: 15%;
-        margin-right: 3vw;
+        width: 17%;
+        margin-right: 3%;
         img {
           width: 100%;
           aspect-ratio: 1/1;
         }
       }
-      .product-name-size-wrapper {
-        width: 50%;
-        .product-name-wrapper {
-          font-size: 20px;
-        }
-        div {
-          margin: 1vw 0;
-        }
-      }
       .product-info-wrapper {
-        width: 40%;
+        width: 60%;
         display: flex;
-        align-items: flex-start;
-        height: 36px;
-        .product-price-wrapper {
-          display: flex;
-          justify-content: flex-end;
-          width: 55%;
-          align-items: center;
+        align-items: baseline;
+        .product-name-size-wrapper {
+          width: 65%;
+          .product-name-wrapper {
+            font-size: 20px;
+            margin-bottom: 1vw;
+          }
         }
         .product-quantity-container {
           display: flex;
-          justify-content: space-around;
           align-items: center;
-          width: 25%;
+          width: 35%;
+          justify-content: center;
           .quantity {
             width: 35px;
             border: none;
@@ -133,10 +124,21 @@ textarea:focus {
             }
           }
         }
-        .button-remove-wrapper {
-          margin-left: 22px;
-        }
       }
+      .product-price-wrapper {
+        width: 10%;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .button-remove-wrapper {
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+      }
+      // }
       button {
         border: none;
         background-color: transparent;
@@ -161,7 +163,7 @@ section {
   position: relative;
   box-sizing: border-box;
   z-index: 0;
-  min-width: 375px;
+  min-width: 325px;
   .product-item-additional {
     margin-top: 5vw;
     padding-top: 0;
@@ -300,14 +302,22 @@ section {
         text-align: center;
         font-size: calc((var(--normal-text-size-value) - 1) * 1.2vw + 0.9rem);
       }
-      .remark {
-        font-weight: 600;
-        color: whitesmoke;
+      .slider-content-wrapper {
         display: flex;
-        align-items: flex-end;
-        min-height: 50vh;
-        text-shadow: 2vw 0 2vw black;
-        width: 75%;
+        flex-direction: column;
+        .remark {
+          font-weight: 600;
+          color: whitesmoke;
+          display: flex;
+          align-items: flex-end;
+          text-shadow: 2vw 0 2vw black;
+          width: 75%;
+          min-height: 40vh;
+        }
+        .logout-wrapper {
+          min-height: 10vh;
+          text-align: end;
+        }
       }
       .newsletter-block {
         padding-top: 0px;
@@ -594,34 +604,33 @@ section {
 }
 
 @media screen and (max-width: 620px) {
-  .shopCart-section {
-    .super-cart-container {
-      .cart-container {
-        .cart-row {
-          padding: 11px 0;
-          .image-wrapper {
-            width: 15%;
-            min-width: 70px;
-            img {
-              width: 100%;
-              aspect-ratio: 1/1;
-            }
+  .super-cart-container {
+    .cart-container {
+      .cart-row {
+        padding: 11px 0;
+        .image-wrapper {
+          width: 22%;
+          min-width: 70px;
+          img {
+            width: 100%;
+            aspect-ratio: 1/1;
           }
+        }
+        .product-info-wrapper {
+          display: flex;
+          flex-direction: column;
+          width: 45%;
+          justify-content: space-around;
           .product-name-size-wrapper {
-            width: 30%;
+            width: 100%;
           }
-          .product-info-wrapper {
-            width: 55%;
-            .product-quantity-container {
-              width: 35%;
-            }
-            .button-remove-wrapper {
-              margin-left: 12px;
-            }
-            .product-price-wrapper {
-              width: 45%;
-            }
+          .product-quantity-container {
+            width: 100%;
+            justify-content: flex-start;
           }
+        }
+        .product-price-wrapper {
+          width: 20%;
         }
       }
     }

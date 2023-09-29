@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { auth, facebookProvider, googleProvider } from "../../fire-base-config/firebase";
-import { createUserWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import google from "../../photos/google.jpg";
 import facebook from "../../photos/facebook.jpg";
@@ -60,14 +60,6 @@ export default function Subscribe() {
   async function signInWithFaceBook() {
     try {
       await signInWithPopup(auth, facebookProvider);
-    } catch (err) {
-      console.error(err);
-    }
-  }
-  async function logout() {
-    try {
-      await signOut(auth);
-      dispatch(setUserInformation(""));
     } catch (err) {
       console.error(err);
     }
@@ -132,7 +124,6 @@ export default function Subscribe() {
   ) : (
     <div className="logout-button-wrapper">
       <p>Thank you for subscribe {isRegistratedUser?.email}! All news will come on your Email!</p>
-      <Button text={"Sign out"} onClick={logout} />
     </div>
   );
 }

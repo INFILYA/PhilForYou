@@ -110,35 +110,35 @@ export default function ShopCart() {
                   <div className="image-wrapper">
                     <img src={product.image} alt="" />
                   </div>
-                  <div className="product-name-size-wrapper">
-                    <div className="product-name-wrapper">
-                      <strong>{product.name}</strong>
-                    </div>
-                    {product.size && <div>Size: {product.size}</div>}
-                  </div>
                   <div className="product-info-wrapper">
-                    <div style={{ display: "flex", width: "100%" }}>
-                      <div className="product-quantity-container">
-                        <button
-                          onClick={() => reduceQuantityOfProduct(product)}
-                          disabled={product.quantity === 1}
-                        >
-                          <div>-</div>
-                        </button>
-                        <div className="quantity">{product.quantity}</div>
-                        <button onClick={() => increaseQuantityOfProduct(product)}>
-                          <div>+</div>
-                        </button>
+                    <div className="product-name-size-wrapper">
+                      <div className="product-name-wrapper">
+                        <strong>{product.name}</strong>
                       </div>
-                      <div className="product-price-wrapper">
-                        <div>$ {product.price}.00</div>
-                      </div>
-                      <div className="button-remove-wrapper">
-                        <button onClick={() => removeProductFromCart(product)}>
-                          <div>X</div>
-                        </button>
-                      </div>
+                      {product.size && (
+                        <div className="product-size-wrapper">Size: {product.size}</div>
+                      )}
                     </div>
+                    <div className="product-quantity-container">
+                      <button
+                        onClick={() => reduceQuantityOfProduct(product)}
+                        disabled={product.quantity === 1}
+                      >
+                        <div>-</div>
+                      </button>
+                      <div className="quantity">{product.quantity}</div>
+                      <button onClick={() => increaseQuantityOfProduct(product)}>
+                        <div>+</div>
+                      </button>
+                    </div>
+                  </div>
+                  <div className="product-price-wrapper">
+                    <div>$ {product.price}.00</div>
+                  </div>
+                  <div className="button-remove-wrapper">
+                    <button onClick={() => removeProductFromCart(product)}>
+                      <div>X</div>
+                    </button>
                   </div>
                 </div>
               ))}
