@@ -9,17 +9,17 @@ import { Time } from "../Wrapper and Button/Time";
 export default function SendForm({ leftSide, text, page }) {
   const [formIsSended, setFormIsSended] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  const [userInfo, setUserInfo] = useState({ firstName: "", lastName: "", email: "", message: "" });
+  const [userInfo, setUserInfo] = useState({ FirstName: "", LastName: "", Email: "", Message: "" });
   const [userFieldError, setUserFieldError] = useState({
-    firstName: "empty",
-    lastName: "empty",
-    email: "empty",
-    message: "empty",
+    FirstName: "empty",
+    LastName: "empty",
+    Email: "empty",
+    Message: "empty",
   });
-  const firstNameRequired = !userFieldError?.firstName;
-  const lastNameRequired = !userFieldError?.lastName;
-  const emailRequired = !userFieldError?.email;
-  const messageRequired = !userFieldError?.message;
+  const FirstNameRequired = !userFieldError?.FirstName;
+  const LastNameRequired = !userFieldError?.LastName;
+  const emailRequired = !userFieldError?.Email;
+  const messageRequired = !userFieldError?.Message;
   function handleUserInfo(e) {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   }
@@ -35,12 +35,12 @@ export default function SendForm({ leftSide, text, page }) {
   async function sendToServer() {
     try {
       setIsLoading(!isLoading);
-      const cartOrders = doc(dataBase, `${page} from: ${userInfo?.email}`, Time);
+      const sendForm = doc(dataBase, userInfo?.Email, `${Time} ${page} `);
       await later(1500);
-      await setDoc(cartOrders, {
-        message: userInfo.message,
+      await setDoc(sendForm, {
+        message: userInfo.Message,
         id: auth?.currentUser?.uid,
-        name: `${userInfo.firstName} ${userInfo.lastName}`,
+        name: `${userInfo.FirstName} ${userInfo.LastName}`,
       });
       setFormIsSended(!formIsSended);
       setIsLoading(!isLoading);
@@ -72,26 +72,26 @@ export default function SendForm({ leftSide, text, page }) {
                             </legend>
                             <div className="field-first-name field">
                               <label>First Name</label>
-                              {firstNameRequired && (
+                              {FirstNameRequired && (
                                 <div className="error-fied">First Name is required</div>
                               )}
                               <input
                                 type="text"
                                 onChange={(e) => handleUserInfo(e)}
-                                value={userInfo.firstName}
-                                name="firstName"
+                                value={userInfo.FirstName}
+                                name="FirstName"
                               />
                             </div>
                             <div className="field-last-name field">
                               <label>Last Name</label>
-                              {lastNameRequired && (
+                              {LastNameRequired && (
                                 <div className="error-fied">Last Name is required</div>
                               )}
                               <input
                                 type="text"
                                 onChange={(e) => handleUserInfo(e)}
-                                value={userInfo.lastName}
-                                name="lastName"
+                                value={userInfo.LastName}
+                                name="LastName"
                               />
                             </div>
                           </fieldset>
@@ -104,14 +104,12 @@ export default function SendForm({ leftSide, text, page }) {
                                 <span style={{ opacity: 0.5 }}>(required)</span>
                               </div>
                             </legend>
-                            {emailRequired && (
-                              <div className="error-fied">Email Name is required</div>
-                            )}
+                            {emailRequired && <div className="error-fied">Email is required</div>}
                             <input
                               type="text"
                               onChange={(e) => handleUserInfo(e)}
-                              value={userInfo.email}
-                              name="email"
+                              value={userInfo.Email}
+                              name="Email"
                             />
                           </div>
                           <div className="field-message field">
@@ -128,8 +126,8 @@ export default function SendForm({ leftSide, text, page }) {
                             )}
                             <textarea
                               onChange={(e) => handleUserInfo(e)}
-                              value={userInfo.message}
-                              name="message"
+                              value={userInfo.Message}
+                              name="Message"
                             />
                           </div>
                           <div className="form-button-wrapper">

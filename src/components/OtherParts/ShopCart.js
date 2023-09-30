@@ -52,14 +52,16 @@ export default function ShopCart() {
     dispatch(setRemoveProductPrice(product.price));
   }
 
-
   async function orderProducts() {
     try {
       setIsLoading(!isLoading);
-      const cartOrders = doc(dataBase, `Order from: ${isRegistratedUser?.email}`, Time);
+      const cartOrders = doc(dataBase, isRegistratedUser?.email, `${Time} Order`);
       await later(1500);
       await setDoc(cartOrders, {
-        ...cartTotalProducts,
+        ...cartTotalProducts.map((item) => {
+          const { name, size, quantity, price } = item;
+          return { name: name, size: size, quantity: quantity, price: price };
+        }),
         userInfo: userInfo || isRegistratedUser?.email,
         totalPrice: totalPrice,
         totalQuantity: totalQuantity,
@@ -70,7 +72,7 @@ export default function ShopCart() {
       dispatch(setCartProductsPrice(0));
       setIsLoading(!isLoading);
       setGratefullMessage(true);
-      await later(4000);
+      await later(3000);
       setGratefullMessage(false);
     } catch (err) {
       console.error(err);
