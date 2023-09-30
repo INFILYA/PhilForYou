@@ -24,6 +24,7 @@ import { auth, dataBase } from "../../fire-base-config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useState } from "react";
 import { later } from "../../utils/utilities";
+import { Time } from "../Wrapper and Button/Time";
 
 export default function ShopCart() {
   const dispatch = useDispatch();
@@ -51,16 +52,6 @@ export default function ShopCart() {
     dispatch(setRemoveProductPrice(product.price));
   }
 
-  let date = new Date();
-  let options = {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    second: "numeric",
-  };
-  const Time = date.toLocaleDateString("en-GB", options);
 
   async function orderProducts() {
     try {
