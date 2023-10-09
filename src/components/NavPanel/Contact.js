@@ -1,5 +1,3 @@
-import facebook from "../../photos/facebook.jpg";
-import instagram from "../../photos/instagram.jpg";
 import SendForm from "./SendForm";
 
 export default function Contact() {
@@ -29,10 +27,10 @@ export default function Contact() {
               <p>Ukraine, Poltava, Oputna 108v</p>
               <div className="social-wrapper">
                 <a href="https://www.instagram.com/harmash_30/" className="instagram">
-                  <img alt="" src={instagram}></img>
+                  <img alt="" src="/photos/instagram.jpg"></img>
                 </a>
                 <a href="https://www.facebook.com/philip.harmash/">
-                  <img alt="" src={facebook}></img>
+                  <img alt="" src="/photos/facebook.jpg"></img>
                 </a>
               </div>
             </div>

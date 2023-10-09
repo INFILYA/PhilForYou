@@ -1,8 +1,4 @@
 import { NavLink } from "react-router-dom";
-import Logo from "../photos/Logo.jpg";
-import facebook from "../photos/facebook.jpg";
-import shopCart from "../photos/shop-cart.jpg";
-import instagram from "../photos/instagram.jpg";
 import Button from "./Wrapper and Button/Button";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -43,7 +39,11 @@ export default function Header({ showBurgerNavPanel, setShowBurgerNavPanel }) {
           <div className="titleNavWrapper">
             <div className="logo">
               <NavLink to={"/"}>
-                <img src={Logo} alt="" onClick={() => setShowBurgerNavPanel(false)}></img>
+                <img
+                  src="/photos/Logo.jpg"
+                  alt=""
+                  onClick={() => setShowBurgerNavPanel(false)}
+                ></img>
                 <div className="user-photo-wrapper">
                   <img src={isRegistratedUser?.photoURL} alt="" />
                 </div>
@@ -65,14 +65,14 @@ export default function Header({ showBurgerNavPanel, setShowBurgerNavPanel }) {
             <div className="actions">
               <div className="social">
                 <a href="https://www.instagram.com/harmash_30/" className="instagram">
-                  <img alt="" src={instagram}></img>
+                  <img alt="" src="/photos/instagram.jpg"></img>
                 </a>
                 <a href="https://www.facebook.com/philip.harmash/">
-                  <img alt="" src={facebook}></img>
+                  <img alt="" src="/photos/facebook.jpg"></img>
                 </a>
                 <div className="shoping-cart-wrapper">
                   <NavLink to="/Shoping Cart">
-                    <img alt="" src={shopCart}></img>
+                    <img alt="" src="/photos/shop-cart.jpg"></img>
                   </NavLink>
                   <div className="count">
                     {cartProductsQuantity === 0 ? "" : cartProductsQuantity}
@@ -90,7 +90,11 @@ export default function Header({ showBurgerNavPanel, setShowBurgerNavPanel }) {
               <div className="shoping-cart-wrapper">
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <NavLink to="/Shoping Cart">
-                    <img alt="" src={shopCart} onClick={() => setShowBurgerNavPanel(false)}></img>
+                    <img
+                      alt=""
+                      src="/photos/shop-cart.jpg"
+                      onClick={() => setShowBurgerNavPanel(false)}
+                    ></img>
                   </NavLink>
                   <div className="count" style={showBurgerNavPanel ? { color: "black" } : {}}>
                     {cartProductsQuantity}
@@ -134,10 +138,10 @@ export default function Header({ showBurgerNavPanel, setShowBurgerNavPanel }) {
             <div className="header-menu-actions">
               <div className="social">
                 <a href="https://www.instagram.com/harmash_30/" className="instagram">
-                  <img alt="" src={instagram}></img>
+                  <img alt="" src="/photos/instagram.jpg"></img>
                 </a>
                 <a href="https://www.facebook.com/philip.harmash/">
-                  <img alt="" src={facebook}></img>
+                  <img alt="" src="/photos/facebook.jpg"></img>
                 </a>
               </div>
             </div>

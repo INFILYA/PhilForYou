@@ -2,8 +2,6 @@ import { useState } from "react";
 import { auth, facebookProvider, googleProvider } from "../../fire-base-config/firebase";
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-import google from "../../photos/google.jpg";
-import facebook from "../../photos/facebook.jpg";
 import Button from "../Wrapper and Button/Button";
 import WrapperForSection from "../Wrapper and Button/WrapperForSection";
 import { useDispatch } from "react-redux";
@@ -106,10 +104,10 @@ export default function Subscribe() {
                 <p>Or sign with:</p>
                 <div className="sign-methods-wrapper">
                   <button type="button" className="google" onClick={signInWithGoogle}>
-                    <img src={google} alt="" />
+                    <img src="/photos/google.jpg" alt="" />
                   </button>
                   <button type="button" className="facebook" onClick={signInWithFaceBook}>
-                    <img src={facebook} alt="" />
+                    <img src="/photos/facebook.jpg" alt="" />
                   </button>
                 </div>
               </div>
